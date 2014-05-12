@@ -1,0 +1,91 @@
+@import "../../../bourbon/bourbon";
+
+.Curtains {
+    @include transform-style(preserve-3d);
+
+    &.Curtains-curtainLeft {
+        position: absolute;
+        top: -818px;
+        left: -1774px;
+        width: 1776px;
+        height: 1682px;
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        @include transform(translate3d(0, 0, -855.61202px));
+    }
+
+    &-curtainRight {
+        position: absolute;
+        top: 0;
+        left: 1772px;
+        width: 1776px;
+        height: 1682px;
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        @include transform(scale(-1, 1));
+    }
+
+    &-film {
+        position: absolute;
+        left: 1774px;
+        top: 841px;
+        width: 1184px;
+        height: 944px;
+        background-image: url(filmstrip.png);
+        background-repeat: no-repeat;
+        pointer-events: none;
+        @include transform-origin(0 0 0);
+        @include transform(translate3d(-296px, -139.5px, 941.70902px) scale(0.25, 0.25));
+    }
+
+    &-filmRight {
+        position: absolute;
+        width: 1184px;
+        height: 944px;
+        background-image: url(filmstrip.png);
+        background-repeat: no-repeat;
+        pointer-events: none;
+        @include transform-origin(0 0 0);
+        @include transform(translate3d(2368px, 0, 0) scale(-1, 1));
+    }
+
+    &-filmLeft {
+        position: absolute;
+        width: 286px;
+        height: 288px;
+        background-image: url(popcorn.png);
+        background-repeat: no-repeat;
+        pointer-events: none;
+        @include transform-origin(0 0 0);
+        @include transform(translate3d(1760px, 600px, 0));
+   }
+
+    &-topLeft {
+        position: absolute;
+        left: 1774px;
+        top: 818px;
+        width: 832px;
+        height: 1682px;
+        border-left: 240px solid black;
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        pointer-events: none;
+        @include transform-origin(0 0 0);
+        @include transform(translate3d(-251.75px, -102.25px, 1098.66052px) scale(0.125, 0.125));
+        @include transform-style(preserve-3d);
+    }
+
+    &-topRight {
+        position: absolute;
+        width: 832px;
+        height: 1682px;
+        border-left: 240px solid black;
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        pointer-events: none;
+        @include transform-origin(0 0 0);
+        @include transform(translate3d(3788px, 0, 0) scale(-1, 1));
+    }
+}
+
+/*# sourceMappingURL=curtains.css.map */

@@ -1,0 +1,199 @@
+@charset "UTF-8";
+.Details {
+  border-radius: 3px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+.Details:after {
+  content: "";
+  height: 20px;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  position: absolute;
+  border-bottom: 11px solid #212121;
+  background-image: -webkit-linear-gradient(top, rgba(33, 33, 33, 0), #212121);
+  background-image: linear-gradient(to bottom, rgba(33, 33, 33, 0), #212121);
+  -webkit-transform: translate3d(0, 1px, 0);
+  -moz-transform: translate3d(0, 1px, 0);
+  -ms-transform: translate3d(0, 1px, 0);
+  -o-transform: translate3d(0, 1px, 0);
+  transform: translate3d(0, 1px, 0);
+  pointer-events: none;
+}
+.Details.expanded .title:before {
+  content: "▼";
+}
+.Details .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 42px;
+  padding: 0 162px 0 12px;
+  height: 42px;
+  background-image: -webkit-linear-gradient(top, rgba(128, 128, 128, 0.95), rgba(64, 64, 64, 0.95));
+  background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.95), rgba(64, 64, 64, 0.95));
+}
+.Details .title:before {
+  content: "▲";
+  color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0;
+  top: 3px;
+  right: 0;
+  text-align: center;
+  line-height: 30px;
+  font-size: 30px;
+  -webkit-transform-origin: 50% 0 0;
+  -moz-transform-origin: 50% 0 0;
+  -ms-transform-origin: 50% 0 0;
+  -o-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  -webkit-transform: scale3d(0.9, 0.3, 1);
+  -moz-transform: scale3d(0.9, 0.3, 1);
+  -ms-transform: scale3d(0.9, 0.3, 1);
+  -o-transform: scale3d(0.9, 0.3, 1);
+  transform: scale3d(0.9, 0.3, 1);
+}
+.Details .maturity {
+  margin: 0 2px 0 4px;
+  padding: 0 0.5em;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}
+.Details .expand:active .title:before {
+  color: rgba(0, 0, 0, 0.4);
+}
+.Details .expand.digit-Button,
+.Details .expand.digit-Button:hover,
+.Details .expand.digit-Button.active,
+.Details .expand.digit-Button:active,
+.Details .expand.digit-Button.focus {
+  color: white;
+  display: block;
+  border: none;
+  border-radius: 0;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 12px;
+  min-width: 30px;
+}
+.Details .action-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.Details .action-buttons .digit-Button.button,
+.Details .action-buttons .digit-Button:focus,
+.Details .action-buttons .digit-Button:active,
+.Details .action-buttons .digit-Button.active,
+.Details .action-buttons .digit-Button:hover {
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 75px;
+  border: none;
+  border-radius: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: inherit;
+  height: 42px;
+  background: transparent;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-tap-highlight-color: transparent;
+}
+.Details .summary {
+  margin: 0;
+  font-size: 13px;
+  line-height: 29px;
+  background-image: -webkit-linear-gradient(top, rgba(26, 26, 26, 0.95), rgba(64, 64, 64, 0.95));
+  background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(64, 64, 64, 0.95));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.Details .summary > div {
+  padding: 0 6px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  color: #bbb;
+}
+.Details .summary > div:first-child {
+  border-left: none;
+}
+.Details .summary > div > div {
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 13px;
+  line-height: 1.7em;
+  color: #777;
+}
+.Details .summary > div * {
+  white-space: nowrap;
+}
+.Details .scroller {
+  color: white;
+  background: #212121;
+}
+.Details .description {
+  margin: 0;
+  padding: 12px 20px 22px 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 500px) and (orientation: portrait) {
+  .Details .title {
+    font-size: 16px;
+  }
+  .Details .action-buttons .digit-Button.button,
+  .Details .action-buttons .digit-Button:focus,
+  .Details .action-buttons .digit-Button:active,
+  .Details .action-buttons .digit-Button.active,
+  .Details .action-buttons .digit-Button:hover {
+    font-size: 13px;
+    width: 64px;
+  }
+
+  > div {
+    font-size: 9.5px;
+    padding: 0;
+    border: none;
+  }
+}
+.rt-icon {
+  margin-bottom: 2px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: bottom;
+  background-size: 25px auto;
+  background-image: url(rt_lg.png);
+  background-repeat: no-repeat;
+  /*display: none;*/
+}
+
+/*# sourceMappingURL=details.css.map */

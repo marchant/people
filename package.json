@@ -1,0 +1,15 @@
+{
+  "name": "People1",
+  "version": "0.1.0",
+  "dependencies": {
+    "montage": "0.14.10",
+    "digit": "0.5.1",
+    "query-params": "0.0.1",
+    "url": "0.7.9",
+    "promise-facebook": "0.0.3"
+  },
+  "devDependencies": {
+    "montage-testing": "~0.4.0"
+  }
+
+}

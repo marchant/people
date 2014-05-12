@@ -1,0 +1,227 @@
+@import "../../bourbon/bourbon";
+
+$break-smallWidth: 500px;
+$break-largeWidth: 790px;
+$break-smallHeight: 500px;
+$break-largeHeight: 660px;
+
+.Main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.Main-content {
+    position: fixed;
+    overflow: hidden;
+}
+.Main-details.details-fade-out {
+    @include transition(transform .35s);
+    opacity: 0;
+}
+@media (min-width: $break-smallWidth) and (max-height: $break-largeHeight) and (min-height: $break-smallHeight) {
+    .logo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: block;
+        margin-top: -340px;
+        margin-left: -210.75px;
+        width: 421.5px;
+        height: 172.5px;
+        z-index: 3;
+        padding: 0;
+        pointer-events: none;
+        display: none;
+    }
+    .Main {
+        &-content {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .Main-strip {
+                margin-top: -530px;
+            }
+        }
+        &-details {
+            position: fixed;
+            z-index: 3;
+            bottom: 10px;
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+            height: 180px;
+            @include transform(translate3d(0,95px,0));
+            @include transition(opacity .35s, -webkit-transform .35s);
+
+            &.expanded {
+                @include transform(translate3d(0,0,0));
+            }
+        }
+    }
+}
+@media (min-width: $break-smallWidth) and (min-height: $break-largeHeight) {
+    .logo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: block;
+        margin-top: -365px;
+        margin-left: -210.75px;
+        width: 421.5px;
+        height: 172.5px;
+        z-index: 3;
+        padding: 0;
+        pointer-events: none;
+    }
+    .Main {
+        &-content {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .Main-strip {
+                margin-top: -525px;
+            }
+        }
+        &-details {
+            position: fixed;
+            z-index: 3;
+            top: 50%;
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+            margin-top: 148px;
+            height: 203px;
+            @include transition(opacity .35s, -webkit-transform .35s);
+
+            .title:before {
+               display: none;
+            }
+        }
+    }
+    .scroller {
+        height: 108px;
+    }
+}
+@media (max-width: $break-smallWidth) and (orientation: portrait) {
+    .logo {
+        display: none;
+    }
+    .Main {
+        &-content {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 64px;
+
+            .Main-strip {
+                margin-top: -525px;
+            }
+        }
+        &-details {
+            position: fixed;
+            z-index: 1;
+            bottom: 64px;
+            left: 0;
+            right: 0;
+            height: 180px;
+            border-radius: 0;
+            @include transform(translate3d(0,137px,0));
+            @include transition(opacity .35s, -webkit-transform .35s);
+
+            &.expanded {
+                @include transform(translate3d(0,0,0));
+            }
+        }
+    }
+}
+@media (max-height: $break-smallHeight) and (orientation: landscape) {
+    .logo {
+        display: none;
+    }
+    .Main {
+        &-content {
+            top: 0;
+            left: 126px;
+            right: 0;
+            bottom: 0;
+        }
+        &-strip {
+            top: -65%;
+            left: 0;
+            bottom: -65%;
+            right: 0;
+            margin-top: -50px;
+            height: auto;
+            width: auto;
+        }
+        &-details {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            height: 180px;
+            max-width: 600px;
+            min-width: 400px;
+            margin: auto;
+            @include transform(translate3d(0,148px,0));
+            @include transition(opacity .35s, -webkit-transform .35s);
+
+            &.expanded {
+                @include transform(translate3d(0,0,0));
+            }
+        }
+    }
+}
+
+.MontageMade {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 50px;
+    height: 100px;
+    overflow: hidden;
+    font-size: 0;
+    color: transparent;
+    background: url(../../assets/image/montage-made.svg) no-repeat center;
+    background-size: 100% auto;
+}
+
+.MontageMade:hover {
+    opacity: .9;
+}
+
+.MontageMade:active {
+    top: 2px;
+}
+
+@media (min-width: $break-smallWidth) and (max-width: $break-largeWidth) and (max-height: $break-largeHeight) and (min-height: $break-smallHeight) {
+    .Curtains .Curtains-filmLeft {
+        display: none;
+    }
+}
+@media (min-width: $break-smallWidth) and (max-width: $break-largeWidth) and (min-height: $break-largeHeight) {
+    .Curtains .Curtains-filmLeft {
+        display: none;
+    }
+}
+@media (max-width: $break-smallWidth) and (orientation: portrait) {
+    .Curtains .Curtains-filmLeft {
+        display: none;
+    }
+    .Curtains .Curtains-topLeft {
+        display: none;
+    }
+}
+@media (max-height: $break-smallHeight) and (orientation: landscape) {
+    .Curtains .film:after {
+        display: none;
+    }
+}

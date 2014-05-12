@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "mainContent": {"#": "mainContent"}
+            }
+        },
+        "categories": {
+            "prototype": "ui/categories.reel",
+            "properties": {
+                "element": {"#": "categories"}
+            },
+            "bindings": {
+                "categories": {"<-": "@owner.rottenTomato.categories"}
+            }
+        },
+        "details": {
+            "prototype": "ui/details.reel",
+            "properties": {
+                "element": {"#": "details"}
+            },
+            "bindings": {
+                "movie": {"<-": "@moviestrip.categoryContentController.selection.one()"}
+            }
+        },
+        "moviestrip": {
+            "prototype": "ui/moviestrip.reel",
+            "properties": {
+                "element": {"#": "moviestrip"},
+                "movieDetails": {"@": "details"}
+            },
+            "bindings": {
+                "categoryContentController": {"<-": "@owner.rottenTomato.categories.selection.one().contentController"}
+            }
+        },
+        "player": {
+            "prototype": "ui/player.reel",
+            "properties": {
+                "element": {"#": "player"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Main">
+        <img class="logo" src="../../assets/image/logo.png" alt="logo">
+        <div data-montage-id="categories"></div>
+        <div data-montage-id="mainContent" class="Main-content">
+            <div data-montage-id="moviestrip" class="Main-strip">
+
+            </div>
+            <div data-montage-id="details" class="Main-details"></div>
+        </div>
+        <a class="MontageMade" href="http://montagejs.org">
+            Made with Montage
+        </a>
+        <div data-montage-id="player" class="popup"></div>
+    </div>
+</body>
+</html>

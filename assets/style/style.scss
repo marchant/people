@@ -1,0 +1,28 @@
+@import "../../bourbon/_bourbon";
+
+* {
+    @include user-select(none);
+    @include box-sizing(border-box);
+    -webkit-user-drag: none;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+}
+
+.main {
+    visibility: hidden;
+}
+
+.montage-app-bootstrapping {
+}
+
+.montage-app-loading {
+}
+
+.montage-app-loaded {
+    .main {
+        visibility: visible;
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="details.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "aImage": {"#": "aImage"},
+                "cImage": {"#": "cImage"}
+            }
+        },
+        "audienceScore": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "audienceScore"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.ratings.audience_score"}
+            }
+        },
+        "criticsScore": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "criticsScore"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.ratings.critics_score"}
+            }
+        },
+        "dates": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "dates"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.release_dates.theater"}
+            }
+        },
+        "description": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "description"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.synopsis"}
+            }
+        },
+        "expandButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "expand"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "maturity": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "maturity"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.mpaa_rating"}
+            }
+        },
+        "rentButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "rentButton"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "runtime": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "runtime"}
+            },
+            "bindings": {
+                "value": {"<-": "(@owner.movie.runtime/60).floor() + 'h ' + @owner.movie.runtime%60 + 'min'"}
+            }
+        },
+        "scroller": {
+            "prototype": "digit/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scroller"},
+                "hasMomentum": true
+            }
+        },
+        "title": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.movie.title"}
+            }
+        },
+        "trailerButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "trailerButton"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Details">
+        <div data-montage-id="expand" class="expand">
+            <h2 data-montage-id="title" class="title"></h2>
+        </div>
+        <div class="summary">
+            <div>
+                <div>
+                    Release
+                </div>
+                <time data-montage-id="dates" class="score"></time>
+            </div>
+            <div>
+                <div>
+                    Rating
+                </div>
+                <span data-montage-id="maturity" class="maturity"></span>
+            </div>
+            <div>
+                <div>
+                    Duration
+                </div>
+                <span data-montage-id="runtime" class="score"></span>
+            </div>
+            <div>
+                <div>
+                    Critics
+                </div>
+                <span data-montage-id="cImage" class="rt-icon icon-critics"></span>
+                <span data-montage-id="criticsScore" class="score"></span>
+                %
+            </div>
+            <div>
+                <div>
+                    Audience
+                </div>
+                <span data-montage-id="aImage" class="rt-icon icon-audience"></span>
+                <span data-montage-id="audienceScore" class="score"></span>
+                %
+            </div>
+        </div>
+        <div data-montage-id="scroller" class="scroller">
+            <p data-montage-id="description" class="description"></p>
+        </div>
+        <nav class="action-buttons">
+            <button data-montage-id="trailerButton" class="button button-trailer">
+                Trailer
+            </button>
+            <button data-montage-id="rentButton" class="button button-rent">
+                Rent
+            </button>
+        </nav>
+    </div>
+</body>
+</html>

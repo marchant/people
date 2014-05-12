@@ -1,0 +1,185 @@
+@import "../../bourbon/bourbon";
+
+.Details {
+    border-radius: 3px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .8);
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        height: 20px;
+        bottom: 0;
+        left: 16px;
+        right: 16px;
+        position: absolute;
+        border-bottom: 11px solid hsl(0,0%,13%);
+        @include background-image(linear-gradient(top, hsla(0,0%,13%,0), hsl(0,0%,13%) ));
+        @include transform(translate3d(0,1px,0));
+        pointer-events: none;
+    }
+    &.expanded {
+        .title:before {
+            content: "▼";
+        }
+    }
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 42px;
+        padding: 0 162px 0 12px;
+        height: 42px;
+        @include background-image(linear-gradient(top, hsla(0, 0%, 50%, .95), hsla(0, 0%, 25%, .95)));
+
+        &:before {
+            content: "▲";
+            color: rgba(0, 0, 0, .2);
+            position: absolute;
+            left: 0;
+            top: 3px;
+            right: 0;
+            text-align: center;
+            line-height: 30px;
+            font-size: 30px;
+            @include transform-origin(50% 0 0);
+            @include transform(scale3d(.9, .3, 1));
+        }
+    }
+
+    .maturity {
+        margin: 0 2px 0 4px;
+        padding: 0 0.5em;
+        border: 1px solid hsl(0, 0%, 100%);
+        border-radius: 5px;
+        color: hsl(0, 0%, 100%);
+    }
+
+    .expand:active .title:before {
+        color: rgba(0, 0, 0, .4);
+    }
+    .expand.digit-Button,
+    .expand.digit-Button:hover,
+    .expand.digit-Button.active,
+    .expand.digit-Button:active,
+    .expand.digit-Button.focus {
+        color: white;
+        display: block;
+        border: none;
+        border-radius: 0;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        font-size: 12px;
+        min-width: 30px;
+    }
+    .action-buttons {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .digit-Button.button,
+        .digit-Button:focus,
+        .digit-Button:active,
+        .digit-Button.active,
+        .digit-Button:hover {
+            float: left;
+            margin: 0;
+            padding: 0;
+            display: block;
+            width: 75px;
+            border: none;
+            border-radius: 0;
+            color: white;
+            font-size: 15px;
+            font-weight: normal;
+            font-family: inherit;
+            height: 42px;
+            background: transparent;
+            border-left: 1px solid rgba(0, 0, 0, .3);
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    }
+    .summary {
+        margin: 0;
+        font-size: 13px;
+        line-height: 29px;
+        @include background-image(linear-gradient(top, hsla(0,0%,10%,.95), hsla(0,0%,25%,.95) ));
+        border-bottom: 1px solid rgba(0,0,0,.5);
+        @include display(flex);
+
+        >div {
+            padding: 0 6px;
+            text-align: center;
+            @include flex(1);
+            border-left: 1px solid rgba(0,0,0,.3);
+            color: #bbb;
+
+            &:first-child {
+                border-left: none;
+            }
+            >div {
+                text-align: left;
+                border-bottom: 1px solid rgba(0,0,0,.3);
+                font-size: 13px;
+                line-height: 1.7em;
+                color: #777;
+            }
+            * {
+                white-space: nowrap;
+            }
+        }
+    }
+    .scroller {
+        color: white;
+        background: hsl(0,0%,13%);
+    }
+    .description {
+        margin: 0;
+        padding: 12px 20px 22px 20px;
+        text-align: left;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 500px) and (orientation: portrait) {
+    .Details {
+        .title {
+            font-size: 16px;
+        }
+        .action-buttons {
+            .digit-Button.button,
+            .digit-Button:focus,
+            .digit-Button:active,
+            .digit-Button.active,
+            .digit-Button:hover {
+                font-size: 13px;
+                width: 64px;
+            }
+        }
+    }
+    >div {
+        font-size: 9.5px;
+        padding: 0;
+        border: none;
+    }
+}
+
+
+.rt-icon {
+    margin-bottom: 2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: bottom;
+    background-size: 25px auto;
+    background-image: url(rt_lg.png);
+    background-repeat: no-repeat;
+    /*display: none;*/
+}

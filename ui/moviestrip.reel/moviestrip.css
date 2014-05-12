@@ -1,0 +1,69 @@
+.Moviestrip {
+  position: absolute;
+  top: 50%;
+  margin-top: -500px;
+  left: 0;
+  right: 0;
+  height: 1000px;
+}
+.Moviestrip-flow .montage-Flow-Repetition {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.Moviestrip-flow.is-hidden .montage-Flow-Repetition {
+  opacity: 0;
+}
+.Moviestrip-flow .montage-Flow-Slot {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+.Moviestrip-image {
+  position: absolute;
+  width: 180px;
+  height: 267px;
+  margin-left: -90px;
+  margin-top: -130px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.Moviestrip-image:before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: -33px;
+  width: 246px;
+  height: 332px;
+  background-image: url(frame.png);
+  pointer-events: none;
+  background-size: 246px 332px;
+  background-repeat: no-repeat;
+}
+.Moviestrip-friends {
+  overflow: visible !important;
+  -webkit-perspective: none !important;
+  -moz-perspective: none !important;
+  perspective: none !important;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.Moviestrip-friends > .montage-Flow-camera {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform: none !important;
+}
+
+/*# sourceMappingURL=moviestrip.css.map */

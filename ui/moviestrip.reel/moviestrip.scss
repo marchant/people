@@ -1,0 +1,62 @@
+@import "../../bourbon/bourbon";
+
+.Moviestrip  {
+    position: absolute;
+    top: 50%;
+    margin-top: -500px;
+    left: 0;
+    right: 0;
+    height: 1000px;
+
+    &-flow {
+        .montage-Flow-Repetition {
+            opacity: 1;
+            @include transition(opacity .5s);
+        }
+        &.is-hidden {
+            .montage-Flow-Repetition {
+                opacity: 0;
+            }
+        }
+        .montage-Flow-Slot {
+            @include transform-style(preserve-3d);
+            // so that the slot has a main size for the flow inside
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+    &-image  {
+        position: absolute;
+        width: 180px;
+        height: 267px;
+        margin-left: -90px;
+        margin-top: -130px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -26px;
+            left: -33px;
+            width: 246px;
+            height: 332px;
+            background-image: url(frame.png);
+            pointer-events: none;
+            background-size: 246px 332px;
+            background-repeat: no-repeat;
+        }
+    }
+    &-friends {
+        overflow: visible !important;
+        @include perspective(none !important);
+        @include transform-style(preserve-3d);
+
+        >.montage-Flow-camera {
+            @include transform(none !important);
+        }
+    }
+}

@@ -1,0 +1,25 @@
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-drag: none;
+}
+
+body {
+  background: #000;
+  overflow: hidden;
+}
+
+.main {
+  visibility: hidden;
+}
+
+.montage-app-loaded .main {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=style.css.map */

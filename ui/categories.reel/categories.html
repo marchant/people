@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="categories.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selected": {"<-": "@radioButtonController.value"}
+            }
+        },
+        "button": {
+            "prototype": "./category-button.reel",
+            "properties": {
+                "element": {"#": "button"},
+                "radioButtonController": {"@": "radioButtonController"}
+            },
+            "bindings": {
+                "classList.has(@repetition:iteration.object.key)": {"<-": "true"},
+                "label": {"<-": "@repetition:iteration.object.title"},
+                "value": {"<-": "@repetition:iteration.object"}
+            }
+        },
+        "radioButtonController": {
+            "prototype": "montage/core/radio-button-controller",
+            "bindings": {
+                "contentController": {"<-": "@owner.categories"}
+            }
+        },
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "contentController": {"<-": "@owner.categories"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Categories">
+        <span data-montage-id="repetition" class="Categories-strip">
+            <button data-montage-id="button" class="Categories-button"></button>
+        </span>
+    </div>
+</body>
+</html>
