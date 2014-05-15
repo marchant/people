@@ -1,7 +1,6 @@
 
 var Component = require("montage/ui/component").Component,
-    sharedRottenTomatoService = require("core/rotten-tomato-service").shared,
-    sharedYoutubeService = require("core/youtube-service").shared;
+    meController = require("../../core/me-controller").shared;
 
 //TODO use details in toggle buttons
 //TODO do not use matte toggle buttons
@@ -11,13 +10,13 @@ exports.Main = Component.specialize({
         value: function Main () {
             this.application.addEventListener( "openTrailer", this, false);
 
-            this.canDrawGate.setField("moviesLoaded", false);
-            this._initialDataLoad = this.rottenTomato.load();
+            this.canDrawGate.setField("dataLoaded", false);
+            this._initialDataLoad = this.meController.login();
         }
     },
 
-    rottenTomato: {
-        value: sharedRottenTomatoService
+    meController: {
+        value: meController
     },
 
     _initialDataLoad: {
@@ -28,17 +27,7 @@ exports.Main = Component.specialize({
         value: function () {
             var self = this;
             self._initialDataLoad.then(function () {
-                self.canDrawGate.setField("moviesLoaded", true);
-            }).done();
-        }
-    },
-
-    handleOpenTrailer: {
-        value: function (event) {
-            var title = event.detail.title,
-            player = this.templateObjects.player;
-            sharedYoutubeService.searchYoutubeTrailer(title).then(function (id) {
-                player.openTrailer(id);
+                self.canDrawGate.setField("dataLoaded", true);
             }).done();
         }
     },

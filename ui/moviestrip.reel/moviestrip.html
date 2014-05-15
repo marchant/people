@@ -25,7 +25,6 @@
                     0,
                     10
                 ],
-                "delegate": {"@": "owner"},
                 "flowEditorMetadata": {
                     "flowEditorVersion": 0.1,
                     "shapes": [
@@ -267,14 +266,23 @@
                 "stride": 1
             },
             "bindings": {
-                "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
-                "contentController": {"<-": "@owner._displayedContentController"}
+                "contentController": {"<-": "@owner.friendsController"}
             }
         },
-        "movieFlow": {
+        "friendPicture": {
+            "prototype": "ui/moviestrip.reel/image.reel",
+            "properties": {
+                "element": {"#": "friendPicture"},
+                "crossOrigin": null
+            },
+            "bindings": {
+                "src": {"<-": "@friends:iteration.object.friend.picture.url"}
+            }
+        },
+        "photoFlow": {
             "prototype": "montage/ui/flow.reel",
             "properties": {
-                "element": {"#": "movieFlow"},
+                "element": {"#": "photoFlow"},
                 "cameraFov": 77.06934,
                 "cameraPosition": [
                     100,
@@ -541,17 +549,7 @@
                 "crossOrigin": null
             },
             "bindings": {
-                "src": {"<-": "@movieFlow:iteration.object.posters.detailed"}
-            }
-        },
-        "poster2": {
-            "prototype": "ui/moviestrip.reel/image.reel",
-            "properties": {
-                "element": {"#": "poster2"},
-                "crossOrigin": null
-            },
-            "bindings": {
-                "src": {"<-": "@friends:iteration.object.posters.detailed"}
+                "src": {"<-": "@photoFlow:iteration.object.photo.source"}
             }
         }
     }
@@ -560,9 +558,9 @@
 <body>
     <div data-montage-id="owner" class="Moviestrip">
         <div data-montage-id="friends" class="Moviestrip-friends">
-            <div data-montage-id="poster2" class="Moviestrip-image"></div>
+            <div data-montage-id="friendPicture" class="Moviestrip-image"></div>
         </div>
-        <div data-montage-id="movieFlow" class="Moviestrip-flow">
+        <div data-montage-id="photoFlow" class="Moviestrip-flow">
             <div data-montage-id="poster" class="Moviestrip-image"></div>
         </div>
         <div class="film"></div>

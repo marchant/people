@@ -11,15 +11,6 @@
                 "mainContent": {"#": "mainContent"}
             }
         },
-        "categories": {
-            "prototype": "ui/categories.reel",
-            "properties": {
-                "element": {"#": "categories"}
-            },
-            "bindings": {
-                "categories": {"<-": "@owner.rottenTomato.categories"}
-            }
-        },
         "details": {
             "prototype": "ui/details.reel",
             "properties": {
@@ -36,7 +27,8 @@
                 "movieDetails": {"@": "details"}
             },
             "bindings": {
-                "categoryContentController": {"<-": "@owner.rottenTomato.categories.selection.one().contentController"}
+                "friendsController": {"<-": "@owner.meController.friends"},
+                "photosController": {"<-": "@owner.meController.friends.selection.one().photos"}
             }
         },
         "player": {
@@ -51,7 +43,6 @@
 <body>
     <div data-montage-id="owner" class="Main">
         <img class="logo" src="../../assets/image/logo.png" alt="logo">
-        <div data-montage-id="categories"></div>
         <div data-montage-id="mainContent" class="Main-content">
             <div data-montage-id="moviestrip" class="Main-strip">
 

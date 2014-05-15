@@ -23,20 +23,20 @@ exports.Moviestrip = Component.specialize({
         }
     },
 
-    _categoryContentController: {
+    _photosController: {
         value: null
     },
 
-    categoryContentController: {
+    photosController: {
         get: function () {
-            return this._categoryContentController;
+            return this._photosController;
         },
         set: function (value) {
             if (value == null) { return; }
-            this._categoryContentController = value;
-            if (this._categoryContentController == null) {
+            this._photosController = value;
+            if (this._photosController == null) {
                 // first time
-                this._displayedContentController = this._categoryContentController;
+                this._displayedContentController = this._photosController;
                 this._flowHidden = false;
             } else {
                 this._startChangeCategoryTransition();
@@ -58,10 +58,10 @@ exports.Moviestrip = Component.specialize({
             // wait .5s until the fade in/out effect is completed
             setTimeout( function () {
                 // reset the flow to initial scroll position
-                if (self.templateObjects && self.templateObjects.movieFlow) {
-                    self.templateObjects.movieFlow.scroll = 0;
+                if (self.templateObjects && self.templateObjects.photoFlow) {
+                    self.templateObjects.photoFlow.scroll = 14;
                 }
-                self._displayedContentController = self.categoryContentController;
+                self._displayedContentController = self.photosController;
                 self._flowHidden = false;
                 self._detailsHidden = false;
             }, 800 );
