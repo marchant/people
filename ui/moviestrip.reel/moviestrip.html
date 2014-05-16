@@ -279,6 +279,17 @@
                 "src": {"<-": "@friends:iteration.object.friend.picture.url"}
             }
         },
+        "orientation": {
+            "prototype": "./orientation",
+            "properties": {
+                "magnitude": 50,
+                "input": [
+                    100,
+                    -400,
+                    810
+                ]
+            }
+        },
         "photoFlow": {
             "prototype": "montage/ui/flow.reel",
             "properties": {
@@ -539,7 +550,8 @@
             },
             "bindings": {
                 "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
-                "contentController": {"<-": "@owner._displayedContentController"}
+                "contentController": {"<-": "@owner._displayedContentController"},
+                "cameraPosition": {"<-": "@orientation.output"}
             }
         },
         "poster": {
