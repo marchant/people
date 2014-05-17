@@ -66,4 +66,8 @@
   transform: none !important;
 }
 
+.Moviestrip.is-zoomedIn .Moviestrip-friends {
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=moviestrip.css.map */

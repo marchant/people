@@ -24,7 +24,6 @@
             width: 100%;
             height: 100%;
         }
-
     }
     &-image  {
         position: absolute;
@@ -59,4 +58,8 @@
             @include transform(none !important);
         }
     }
+}
+
+.Moviestrip.is-zoomedIn .Moviestrip-friends {
+    pointer-events: none;
 }

@@ -288,6 +288,9 @@
                     -400,
                     810
                 ]
+            },
+            "bindings": {
+                "input": {"<-": "@tween.current"}
             }
         },
         "photoFlow": {
@@ -563,12 +566,28 @@
             "bindings": {
                 "src": {"<-": "@photoFlow:iteration.object.photo.source"}
             }
+        },
+        "tween": {
+            "prototype": "./tween",
+            "properties": {
+                "component": {"@": "owner"},
+                "end": [
+                    100,
+                    -400,
+                    800
+                ],
+                "start": [
+                    0,
+                    0,
+                    400
+                ]
+            }
         }
     }
     </script>
 </head>
 <body>
-    <div data-montage-id="owner" class="Moviestrip">
+    <div data-montage-id="owner" class="Moviestrip is-zoomedIn">
         <div data-montage-id="friends" class="Moviestrip-friends">
             <div data-montage-id="friendPicture" class="Moviestrip-image"></div>
         </div>

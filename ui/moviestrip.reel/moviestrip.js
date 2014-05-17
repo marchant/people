@@ -81,8 +81,27 @@ exports.Moviestrip = Component.specialize({
                 this._displayedContentController.select(this._displayedContentController.content[scroll]);
             }
             this._detailsHidden = false;
+
         }
     },
+
+    zoomIn: {
+        value: function () {
+            this.templateObjects.tween.back();
+            this._zoomed = true;
+            this.classList.add("is-zoomedIn");
+        }
+    },
+
+    zoomOut: {
+        value: function () {
+            this.templateObjects.tween.forward();
+            this._zoomed = false;
+            this.classList.remove("is-zoomedIn");
+
+        }
+    },
+
 
     _flowHidden: {
         value: false

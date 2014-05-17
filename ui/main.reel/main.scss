@@ -13,14 +13,21 @@ $break-largeHeight: 660px;
     bottom: 0;
     overflow: hidden;
     font-family: Helvetica, Arial, sans-serif;
-}
-.Main-content {
-    position: fixed;
-    overflow: hidden;
-}
-.Main-details.details-fade-out {
-    @include transition(transform .35s);
-    opacity: 0;
+
+    & -content {
+        position: fixed;
+        overflow: hidden;
+    }
+    &-details {
+        .details-fade-out {
+            @include transition(transform .35s);
+             opacity: 0;
+        }
+    }
+    &-menuButton {
+        color: #fff;
+        position: relative;
+    }
 }
 @media (min-width: $break-smallWidth) and (max-height: $break-largeHeight) and (min-height: $break-smallHeight) {
     .logo {

@@ -20,6 +20,18 @@
                 "movie": {"<-": "@moviestrip.categoryContentController.selection.one()"}
             }
         },
+        "menuButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "menuButton"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
         "moviestrip": {
             "prototype": "ui/moviestrip.reel",
             "properties": {
@@ -49,9 +61,10 @@
             </div>
             <div data-montage-id="details" class="Main-details"></div>
         </div>
-        <a class="MontageMade" href="http://montagejs.org">
-            Made with Montage
-        </a>
+        <!--<a class="MontageMade" href="http://montagejs.org">-->
+            <!--Made with Montage-->
+        <!--</a>-->
+        <button data-montage-id="menuButton" class="Main-menuButton">MENU</button>
         <div data-montage-id="player" class="popup"></div>
     </div>
 </body>

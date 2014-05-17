@@ -32,6 +32,23 @@ exports.Main = Component.specialize({
         }
     },
 
+    _zoomed: {
+        value: true
+    },
+
+    handleMenuButtonAction: {
+        value: function () {
+            if (this._zoomed) {
+                this.templateObjects.moviestrip.zoomOut();
+                this._zoomed = false;
+            } else {
+                this.templateObjects.moviestrip.zoomIn();
+                this._zoomed = true;
+            }
+
+        }
+    },
+
     /**
         iOS 7.0.x iPhone/iPod Touch workaround. After switching from portrait to landscape
         mode, Safari shows the content full screen. If the top or bottom of the content is

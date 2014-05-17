@@ -72,7 +72,12 @@ exports.MeController = Montage.specialize(/** @lends MeController# */ {
                             .then(function (friends) {
                                     var friendControllers = [];
                                     friends.forEach(function (friend) {
-                                        friendControllers.push(new FriendController(friend, facebook));
+                                        if(friend.name === "Jenna Lingle") {
+                                            friendControllers[1] = new FriendController(friend, facebook);
+                                        } else {
+                                            friendControllers.push(new FriendController(friend, facebook));
+                                        }
+
                                     });
                                     return friendControllers;
                             });

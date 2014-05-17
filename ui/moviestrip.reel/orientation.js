@@ -39,7 +39,6 @@ exports.Orientation = Montage.specialize(/** @lends Orientation# */ {
                 var deltaAlpha = this.orientation[0] - this._baseOrientation[0];
                 var deltaBeta = this.orientation[1] - this._baseOrientation[1];
                 var deltaGamma = this.orientation[2] - this._baseOrientation[2];
-//                console.log("deltaAlpha, deltaBeta, deltaGamma",deltaAlpha, deltaBeta, deltaGamma);
                 deltaAlpha = deltaAlpha * degtorad;
                 deltaBeta = deltaBeta * degtorad;
                 deltaGamma = deltaGamma * degtorad;
@@ -60,7 +59,6 @@ exports.Orientation = Montage.specialize(/** @lends Orientation# */ {
                 this.input[1] + deltaGamma*this.magnitude,
                 this.input[2]
             ];
-            console.log("x, y, z",output[0], output[1], output[2]);
             return output;
         }
     },
@@ -68,18 +66,11 @@ exports.Orientation = Montage.specialize(/** @lends Orientation# */ {
 
     _updateOrientation: {
         value: function (alpha, beta, gamma) {
-
-            console.log("alpha, beta, gamma",alpha, beta, gamma);
             this.orientation = [
                 alpha + 0.5*(this.orientation[0] - alpha),
                 beta + 0.5*(this.orientation[1] - beta),
                 gamma + 0.5*(this.orientation[2] - gamma)
             ];
-//            this.orientation = [
-//                alpha,
-//                beta,
-//                gamma
-//            ];
         }
     },
 
