@@ -1,10 +1,10 @@
 
 var Component   = require("montage/ui/component").Component;
 
-exports.Moviestrip = Component.specialize({
+exports.Feed = Component.specialize({
 
     constructor: {
-        value: function Moviestrip () {
+        value: function Feed () {
             this.super();
         }
     },
@@ -12,13 +12,13 @@ exports.Moviestrip = Component.specialize({
     enterDocument: {
         value: function (firstTime) {
             if (firstTime) {
-                this.movieDetails.defineBinding(
-                    "classList.has('details-fade-out')",
-                    {
-                        "<-": "$self._detailsHidden",
-                        parameters: { self: this }
-                    }
-                );
+//                this.movieDetails.defineBinding(
+//                    "classList.has('details-fade-out')",
+//                    {
+//                        "<-": "$self._detailsHidden",
+//                        parameters: { self: this }
+//                    }
+//                );
             }
         }
     },

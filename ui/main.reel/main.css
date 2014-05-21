@@ -7,7 +7,7 @@
   overflow: hidden;
   font-family: Helvetica, Arial, sans-serif;
 }
-.Main -content {
+.Main-content {
   position: fixed;
   overflow: hidden;
 }
@@ -44,7 +44,7 @@
     right: 0;
     bottom: 0;
   }
-  .Main-content .Main-strip {
+  .Main-content .Main-feed {
     margin-top: -530px;
   }
   .Main-details {
@@ -93,7 +93,7 @@
     right: 0;
     bottom: 0;
   }
-  .Main-content .Main-strip {
+  .Main-content .Main-feed {
     margin-top: -525px;
   }
   .Main-details {
@@ -128,7 +128,7 @@
     right: 0;
     bottom: 64px;
   }
-  .Main-content .Main-strip {
+  .Main-content .Main-feed {
     margin-top: -525px;
   }
   .Main-details {
@@ -167,7 +167,7 @@
     right: 0;
     bottom: 0;
   }
-  .Main-strip {
+  .Main-feed {
     top: -65%;
     left: 0;
     bottom: -65%;

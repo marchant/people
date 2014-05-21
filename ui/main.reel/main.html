@@ -11,15 +11,6 @@
                 "mainContent": {"#": "mainContent"}
             }
         },
-        "details": {
-            "prototype": "ui/details.reel",
-            "properties": {
-                "element": {"#": "details"}
-            },
-            "bindings": {
-                "movie": {"<-": "@moviestrip.categoryContentController.selection.one()"}
-            }
-        },
         "menuButton": {
             "prototype": "digit/ui/button.reel",
             "properties": {
@@ -32,21 +23,13 @@
                 }
             ]
         },
-        "moviestrip": {
-            "prototype": "ui/moviestrip.reel",
+        "feed": {
+            "prototype": "ui/feed.reel",
             "properties": {
-                "element": {"#": "moviestrip"},
-                "movieDetails": {"@": "details"}
+                "element": {"#": "feed"}
             },
             "bindings": {
-                "friendsController": {"<-": "@owner.meController.friends"},
-                "photosController": {"<-": "@owner.meController.friends.selection.one().photos"}
-            }
-        },
-        "player": {
-            "prototype": "ui/player.reel",
-            "properties": {
-                "element": {"#": "player"}
+                "photosController": {"<-": "@owner.meController.feed"}
             }
         }
     }
@@ -54,18 +37,16 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Main">
-        <img class="logo" src="../../assets/image/logo.png" alt="logo">
         <div data-montage-id="mainContent" class="Main-content">
-            <div data-montage-id="moviestrip" class="Main-strip">
+            <div data-montage-id="feed" class="Main-feed">
 
             </div>
-            <div data-montage-id="details" class="Main-details"></div>
+            <!--<div data-montage-id="details" class="Main-details"></div>-->
         </div>
         <!--<a class="MontageMade" href="http://montagejs.org">-->
             <!--Made with Montage-->
         <!--</a>-->
         <button data-montage-id="menuButton" class="Main-menuButton">MENU</button>
-        <div data-montage-id="player" class="popup"></div>
     </div>
 </body>
 </html>

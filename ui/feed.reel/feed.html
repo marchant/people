@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="feed.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "orientation": {
+            "prototype": "./orientation",
+            "properties": {
+                "magnitude": 50,
+                "input": [
+                    100,
+                    -400,
+                    810
+                ]
+            },
+            "bindings": {
+                "input": {"<-": "@tween.current"}
+            }
+        },
+        "feedFlow": {
+            "prototype": "montage/ui/flow.reel",
+            "properties": {
+                    "element": {"#": "feedFlow"},
+                    "hasElasticScrolling": true,
+                    "elasticScrollingSpeed": 0.6,
+                    "linearScrollingVector": [-235, 0],
+                    "cameraFov": 77,
+                    "paths": [
+                        {
+                            "knots": [
+                                {
+                                    "knotPosition": [-1200, -100, 0],
+                                    "nextHandlerPosition": [-400, -200, 0],
+                                    "previousDensity": 12,
+                                    "nextDensity": 12
+                                },
+                                {
+                                    "knotPosition": [1200, -100, 0],
+                                    "previousHandlerPosition": [400, -200, 0],
+                                    "previousDensity": 12,
+                                    "nextDensity": 12
+                                }
+                            ],
+                            "headOffset": 6,
+                            "tailOffset": 6,
+                            "units": {}
+                        },
+                        {
+                            "knots": [
+                                {
+                                    "knotPosition": [-1000, 100, 0],
+                                    "nextHandlerPosition": [-200, 100, 0],
+                                    "previousDensity": 12,
+                                    "nextDensity": 12
+                                },
+                                {
+                                    "knotPosition": [1400, 100, 0],
+                                    "previousHandlerPosition": [600, 100, 0],
+                                    "previousDensity": 12,
+                                    "nextDensity": 12
+                                }
+                            ],
+                            "headOffset": 5.5,
+                            "tailOffset": 5.5,
+                            "units": {}
+                        }
+                    ],
+                    "isSelectionEnabled": true,
+                    "delegate": {"@": "owner"},
+               "selectedIndexScrollingOffset": 0
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
+                "contentController": {"<-": "@owner._displayedContentController"},
+                "cameraPosition": {"<-": "@orientation.output"}
+            }
+        },
+        "post": {
+            "prototype": "./image.reel",
+            "properties": {
+                "element": {"#": "post"},
+                "crossOrigin": null
+            },
+            "bindings": {
+                "src": {"<-": "@feedFlow:iteration.object.photo.source"}
+            }
+        },
+        "tween": {
+            "prototype": "./tween",
+            "properties": {
+                "component": {"@": "owner"},
+                "end": [
+                    100,
+                    -400,
+                    800
+                ],
+                "start": [
+                    0,
+                    0,
+                    400
+                ]
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Feed is-zoomedIn">
+        <div data-montage-id="logo" class="Feed-logo">
+        </div>
+        <div data-montage-id="feedFlow" class="Feed-flow">
+            <div data-montage-id="post" class="Feed-post"></div>
+        </div>
+        <div class="film"></div>
+    </div>
+</body>
+</html>

@@ -23,21 +23,21 @@
     "properties": {
       "name": null,
       "blueprintModule": {
-        "%": "ui/moviestrip.reel/moviestrip.meta"
+        "%": "ui/feed.reel/feed.meta"
       },
       "parent": {"@": "blueprint_component_reference"},
       "propertyBlueprints": [
         {"@": "blueprint_unnamed_categoryContentController"}
       ],
       "propertyBlueprintGroups": {
-        "Moviestrip": [
+        "Feed": [
           {"@": "blueprint_unnamed_categoryContentController"}
         ]
       },
       "module": {
-        "%": "ui/moviestrip.reel"
+        "%": "ui/feed.reel"
       },
-      "exportName": "Moviestrip"
+      "exportName": "Feed"
     }
   }
 }

@@ -39,10 +39,10 @@ exports.Main = Component.specialize({
     handleMenuButtonAction: {
         value: function () {
             if (this._zoomed) {
-                this.templateObjects.moviestrip.zoomOut();
+                this.templateObjects.feed.zoomOut();
                 this._zoomed = false;
             } else {
-                this.templateObjects.moviestrip.zoomIn();
+                this.templateObjects.feed.zoomIn();
                 this._zoomed = true;
             }
 
@@ -59,7 +59,7 @@ exports.Main = Component.specialize({
         value: function (self) {
             if ((window.innerHeight === window.outerHeight) || (window.innerHeight !== this._element.offsetHeight)) {
                 window.scrollTo(0, 0);
-                self.templateObjects.moviestrip.movieFlow.handleResize();
+                self.templateObjects.feed.feedFlow.handleResize();
                 window.clearTimeout(self._windowScrollTimeout);
                 self._windowScrollTimeout = window.setTimeout(function () {
                     self._windowScroll(self);

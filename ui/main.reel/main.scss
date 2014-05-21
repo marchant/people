@@ -14,7 +14,7 @@ $break-largeHeight: 660px;
     overflow: hidden;
     font-family: Helvetica, Arial, sans-serif;
 
-    & -content {
+    &-content {
         position: fixed;
         overflow: hidden;
     }
@@ -51,7 +51,7 @@ $break-largeHeight: 660px;
             right: 0;
             bottom: 0;
 
-            .Main-strip {
+            .Main-feed {
                 margin-top: -530px;
             }
         }
@@ -93,7 +93,7 @@ $break-largeHeight: 660px;
             right: 0;
             bottom: 0;
 
-            .Main-strip {
+            .Main-feed {
                 margin-top: -525px;
             }
         }
@@ -128,7 +128,7 @@ $break-largeHeight: 660px;
             right: 0;
             bottom: 64px;
 
-            .Main-strip {
+            .Main-feed {
                 margin-top: -525px;
             }
         }
@@ -160,7 +160,7 @@ $break-largeHeight: 660px;
             right: 0;
             bottom: 0;
         }
-        &-strip {
+        &-feed {
             top: -65%;
             left: 0;
             bottom: -65%;

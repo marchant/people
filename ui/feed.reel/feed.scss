@@ -1,6 +1,6 @@
 @import "../../bourbon/bourbon";
 
-.Moviestrip  {
+.Feed  {
     position: absolute;
     top: 50%;
     margin-top: -500px;
@@ -25,7 +25,7 @@
             height: 100%;
         }
     }
-    &-image  {
+    &-post  {
         position: absolute;
         width: 180px;
         height: 267px;
@@ -43,7 +43,7 @@
             left: -33px;
             width: 246px;
             height: 332px;
-            background-image: url(frame.png);
+//            background-image: url(frame.png);
             pointer-events: none;
             background-size: 246px 332px;
             background-repeat: no-repeat;
@@ -60,6 +60,6 @@
     }
 }
 
-.Moviestrip.is-zoomedIn .Moviestrip-friends {
+.Feed.is-zoomedIn .Feed-friends {
     pointer-events: none;
 }

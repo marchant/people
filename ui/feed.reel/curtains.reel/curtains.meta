@@ -19,7 +19,7 @@
         "Overlay": []
       },
       "module": {
-        "%": "ui/moviestrip.reel/overlay.reel"
+        "%": "ui/feed.reel/overlay.reel"
       },
       "exportName": "Overlay"
     }
