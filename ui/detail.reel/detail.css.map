@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,eAAgB;EACZ,QAAQ,EAAE,QAAQ;EAClB,gBAAgB,EAAE,GAAG;ECKjB,wBAAoB,EDJE,QAAQ;ECS9B,qBAAiB,EDTK,QAAQ;ECc9B,oBAAgB,EDdM,QAAQ;ECmB9B,mBAAe,EDnBO,QAAQ;ECwB9B,gBAAY,EDxBU,QAAQ;EEsClC,kBAAkB,EAdP,+BAAuB;EAe/B,eAAe,EAdP,4BAAuB;EAe1B,UAAU,EAdP,uBAAuB;EDtB9B,iBAAoB,EDFL,mCAAiC;ECOhD,cAAiB,EDPF,mCAAiC;ECYhD,aAAgB,EDZD,mCAAiC;ECiBhD,YAAe,EDjBA,mCAAiC;ECsBhD,SAAY,EDtBG,mCAAiC;;;AAExD,yBAA0B;EACtB,GAAG,EAAC,CAAC;EACL,IAAI,EAAC,CAAC;EACN,KAAK,EAAC,CAAC;EACP,MAAM,EAAC,CAAC",
+"sources": ["detail.scss","../../bourbon/addons/_prefixer.scss","../../bourbon/css3/_transition.scss"],
+"names": [],
+"file": "detail.css"
+}

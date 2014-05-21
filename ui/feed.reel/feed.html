@@ -8,7 +8,13 @@
         "owner": {
             "properties": {
                 "element": {"#": "owner"}
-            }
+            },
+            "listeners": [
+                {
+                    "type": "showDetail",
+                    "listener": {"@": "owner"}
+                }
+            ]
         },
         "orientation": {
             "prototype": "./orientation",
@@ -29,21 +35,21 @@
             "properties": {
                     "element": {"#": "feedFlow"},
                     "hasElasticScrolling": true,
-                    "elasticScrollingSpeed": 0.6,
+                    "elasticScrollingSpeed": 0.8,
                     "linearScrollingVector": [-235, 0],
-                    "cameraFov": 77,
+                    "cameraFov": 62,
                     "paths": [
                         {
                             "knots": [
                                 {
                                     "knotPosition": [-1200, -100, 0],
-                                    "nextHandlerPosition": [-400, -200, 0],
+                                    "nextHandlerPosition": [-400, -100, 0],
                                     "previousDensity": 12,
                                     "nextDensity": 12
                                 },
                                 {
                                     "knotPosition": [1200, -100, 0],
-                                    "previousHandlerPosition": [400, -200, 0],
+                                    "previousHandlerPosition": [400, -100, 0],
                                     "previousDensity": 12,
                                     "nextDensity": 12
                                 }
@@ -83,13 +89,12 @@
             }
         },
         "post": {
-            "prototype": "./image.reel",
+            "prototype": "./post.reel",
             "properties": {
-                "element": {"#": "post"},
-                "crossOrigin": null
+                "element": {"#": "post"}
             },
             "bindings": {
-                "src": {"<-": "@feedFlow:iteration.object.photo.source"}
+                "postController": {"<-": "@feedFlow:iteration.object"}
             }
         },
         "tween": {
@@ -104,8 +109,23 @@
                 "start": [
                     0,
                     0,
-                    400
+                    800
                 ]
+            }
+        },
+        "logo": {
+            "prototype": "../facebook-logo.reel",
+            "properties": {
+                "element": {"#": "logo"}
+            },
+            "bindings": {
+                "opacity": {"<-": "@feedFlow.scroll > 666 ? 0 : 1 - 666 / @feedFlow.scroll"}
+            }
+        },
+        "detail": {
+            "prototype": "../detail.reel",
+            "properties": {
+                "element": {"#": "detail"}
             }
         }
     }
@@ -118,7 +138,7 @@
         <div data-montage-id="feedFlow" class="Feed-flow">
             <div data-montage-id="post" class="Feed-post"></div>
         </div>
-        <div class="film"></div>
+        <div data-montage-id="detail" class="Post-detail"></div>
     </div>
 </body>
 </html>

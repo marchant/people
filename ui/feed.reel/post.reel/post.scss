@@ -1,0 +1,25 @@
+@import "../../../bourbon/bourbon";
+
+$Owner: Post;
+
+.#{$Owner} {
+    &[data-path-index="0"] {
+        .#{$Owner}-switch {
+            bottom: 0px;
+        }
+    }
+
+    &[data-path-index="1"] {
+        .#{$Owner}-switch {
+            top: 0px;
+        }
+    }
+
+    &-switch {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        background-color: white;
+        box-shadow: hsla(0,0%,0%,.7) 0px 10px 50px;
+    }
+}

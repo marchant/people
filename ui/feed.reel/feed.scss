@@ -28,26 +28,10 @@
     &-post  {
         position: absolute;
         width: 180px;
-        height: 267px;
+        height: 180px;
         margin-left: -90px;
         margin-top: -130px;
         cursor: pointer;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-
-        &:before {
-            content: "";
-            position: absolute;
-            top: -26px;
-            left: -33px;
-            width: 246px;
-            height: 332px;
-//            background-image: url(frame.png);
-            pointer-events: none;
-            background-size: 246px 332px;
-            background-repeat: no-repeat;
-        }
     }
     &-friends {
         overflow: visible !important;

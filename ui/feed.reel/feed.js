@@ -102,6 +102,14 @@ exports.Feed = Component.specialize({
         }
     },
 
+    handleShowDetail: {
+        value: function (event) {
+// doesn't work yet
+//            this.templateObjects.detail.post = event.detail.post
+//            this.templateObjects.detail.show(event.detail.startElement);
+
+        }
+    },
 
     _flowHidden: {
         value: false

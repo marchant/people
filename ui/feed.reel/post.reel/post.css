@@ -1,0 +1,15 @@
+.Post[data-path-index="0"] .Post-switch {
+  bottom: 0px;
+}
+.Post[data-path-index="1"] .Post-switch {
+  top: 0px;
+}
+.Post-switch {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 10px 50px;
+}
+
+/*# sourceMappingURL=post.css.map */

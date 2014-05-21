@@ -89,6 +89,16 @@ exports.UserController = FacebookController.specialize({
                     return postControllers;
                 })
                 .then(function (postControllers) {
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
+                    postControllers.push.apply(postControllers, postControllers);
                     service.feed.content.push.apply(service.feed.content, postControllers);
                 })
                 .done();
