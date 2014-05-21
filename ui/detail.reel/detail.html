@@ -7,14 +7,38 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "owner"}
+                "element": {"#": "owner"},
+                "detailOverlay": {"#": "detailOverlay"},
+                "frontElement": {"#": "front"},
+                "backElement": {"#": "back"}
             }
         },
-        "detailOverlay": {
+        "overlay": {
             "prototype": "montage/ui/overlay.reel",
             "properties": {
-                "element": {"#": "detailOverlay"},
+                "element": {"#": "overlayWrapper"},
                 "delegate": {"@": "owner"}
+            }
+        },
+        "close": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "close"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "switch": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "switch"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.postController.type"}
             }
         }
     }
@@ -22,7 +46,15 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Detail">
-        <div data-montage-id="detailOverlay" class="Detail-overlay"></div>
+        <div data-montage-id="overlayWrapper" class="Detail-wrapper">
+            <div data-montage-id="detailOverlay" class="Detail-overlay">
+                <div data-montage-id="front" class="Detail-front">
+                    <div data-montage-id="switch" class="Detail-switch"></div>
+                    <button data-montage-id="close">X</button>
+                </div>
+                <div data-montage-id="back" class="Detail-back"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -14,6 +14,7 @@ exports.Post = Component.specialize( {
         value: function () {
             this._pressComposer = new PressComposer();
             this._pressComposer.identifier = "selection";
+            this._pressComposer.delegate = this;
             this.addComposerForElement(this._pressComposer, this._switchElement);
         }
     },
@@ -36,7 +37,7 @@ exports.Post = Component.specialize( {
     handleSelectionPress: {
         value: function () {
             this.dispatchEventNamed("showDetail", true, true, {
-                post: this.post,
+                postController: this.postController,
                 startElement: this._switchElement
             });
         }
@@ -47,6 +48,13 @@ exports.Post = Component.specialize( {
 
         }
     },
+
+    selectionSurrenderPointer: {
+        value: function () {
+            return true;
+        }
+    },
+
 
     postController: {
         value: null

@@ -3,13 +3,22 @@
 $Owner: Post;
 
 .#{$Owner} {
+    position: absolute;
+    width: 180px;
+    height: 10px;
+    margin-left: -90px;
+
     &[data-path-index="0"] {
+        margin-bottom: -5px;
+
         .#{$Owner}-switch {
             bottom: 0px;
         }
     }
 
     &[data-path-index="1"] {
+        margin-top: -5px;
+
         .#{$Owner}-switch {
             top: 0px;
         }
@@ -21,5 +30,6 @@ $Owner: Post;
         right: 0px;
         background-color: white;
         box-shadow: hsla(0,0%,0%,.7) 0px 10px 50px;
+        pointer: cursor;
     }
 }

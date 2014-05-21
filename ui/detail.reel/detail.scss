@@ -1,15 +1,45 @@
 @import "../../bourbon/bourbon";
 
-.Detail-overlay {
-    position: absolute;
-    background-color: red;
-    @include transform-origin(top left);
-    @include transition(transform .3s ease-out);
-    @include transform(scale(1) translate3d(0px,0px,0px));
-}
-.montage-Overlay--visible {
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+
+.Detail {
+    &-wrapper {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        @include perspective(800px);
+        pointer-events: none;
+
+        &.montage-Overlay--visible {
+            pointer-events: inherit;
+        }
+    }
+    &-overlay {
+        position: absolute;
+        top:20px;
+        left:250px;
+        right:250px;
+        bottom:20px;
+        @include transform-origin(center center);
+        @include transform-style(preserve-3d);
+        @include transition(transform .3s, top .3s, left .3s, right .3s, bottom .3s, ease-out );
+        @include transform(translate3d(0px,0px,0px) rotateY(0deg) scale(1));
+    }
+    &-back {
+        position: absolute;
+        width: 180px;
+        height: 10px;
+        margin-left: -90px;
+        @include backface-visibility(hidden);
+//        @include transform(translate3d(0px,0px,-1px) rotateY(180deg));
+    }
+    &-front {
+        position: absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        background-color: hsla(0,0,100%,1);
+    }
 }

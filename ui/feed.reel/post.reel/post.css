@@ -1,5 +1,17 @@
+.Post {
+  position: absolute;
+  width: 180px;
+  height: 10px;
+  margin-left: -90px;
+}
+.Post[data-path-index="0"] {
+  margin-bottom: -5px;
+}
 .Post[data-path-index="0"] .Post-switch {
   bottom: 0px;
+}
+.Post[data-path-index="1"] {
+  margin-top: -5px;
 }
 .Post[data-path-index="1"] .Post-switch {
   top: 0px;
@@ -10,6 +22,7 @@
   right: 0px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.7) 0px 10px 50px;
+  pointer: cursor;
 }
 
 /*# sourceMappingURL=post.css.map */
