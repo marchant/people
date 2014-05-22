@@ -105,7 +105,7 @@ exports.Feed = Component.specialize({
     handleShowDetail: {
         value: function (event) {
 // doesn't work yet
-            this.templateObjects.detail.post = event.detail.post
+            this.templateObjects.detail.postController = event.detail.postController;
             this.templateObjects.detail.show(event.detail.startElement);
 
         }

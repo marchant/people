@@ -23,7 +23,7 @@
         bottom:20px;
         @include transform-origin(center center);
         @include transform-style(preserve-3d);
-        @include transition(transform .3s, top .3s, left .3s, right .3s, bottom .3s, ease-out );
+        @include transition(transform .7s, top .7s, left .7s, right .7s, bottom .7s, ease-out );
         @include transform(translate3d(0px,0px,0px) rotateY(0deg) scale(1));
     }
     &-back {
@@ -32,7 +32,6 @@
         height: 10px;
         margin-left: -90px;
         @include backface-visibility(hidden);
-//        @include transform(translate3d(0px,0px,-1px) rotateY(180deg));
     }
     &-front {
         position: absolute;

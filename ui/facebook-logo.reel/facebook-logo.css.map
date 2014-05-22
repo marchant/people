@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACV,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,GAAG;EACT,KAAK,EAAE,GAAG;EACV,GAAG,EAAE,GAAG;EACR,MAAM,EAAE,GAAG;EAEX,gBAAgB,EAAC,IAAI;EACrB,gBAAgB,EAAE,gEACtB",
+"sources": ["facebook-logo.scss"],
+"names": [],
+"file": "facebook-logo.css"
+}

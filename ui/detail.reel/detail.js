@@ -17,14 +17,14 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
 
     show: {
         value: function (startElement) {
-            if(webkitConvertPointFromNodeToPage) {
+            if(window.webkitConvertPointFromNodeToPage) {
                 var startWidth = startElement.offsetWidth;
                 var startHeight = startElement.offsetHeight;
                 var endWidth = document.documentElement.clientWidth;
                 var endHeight = document.documentElement.clientHeight;
-                var startTopLeft = webkitConvertPointFromNodeToPage(startElement, new WebKitPoint(0, 0));
-                var startBottomRight = webkitConvertPointFromNodeToPage(startElement, new WebKitPoint(startWidth, startHeight));
-                var endBottomRight = new WebKitPoint(endWidth, endHeight);
+                var startTopLeft = window.webkitConvertPointFromNodeToPage(startElement, new window.WebKitPoint(0, 0));
+                var startBottomRight = window.webkitConvertPointFromNodeToPage(startElement, new window.WebKitPoint(startWidth, startHeight));
+                var endBottomRight = new window.WebKitPoint(endWidth, endHeight);
 
                 this.startX = startTopLeft.x + startWidth/2 - endBottomRight.x/2;
                 this.startY = startTopLeft.y + startHeight/2 - endBottomRight.y/2;
@@ -48,7 +48,6 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
         }
     },
 
-
     willDraw: {
         value: function () {
             if(this._startElement) {
@@ -57,11 +56,11 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
         }
     },
 
-
     draw: {
         value: function () {
             var detailOverlay = this.detailOverlay;
             if (this.scaleX !== null) {
+                this.backElement.innerHTML = "";
                 this.backElement.appendChild(this._clonedElement);
                 this.backElement.style.webkitTransform = ["translate3d(0px,0px,-1px) scale(",1/this.scaleX,", ",1/this.scaleY,") rotateY(-180deg)"].join('');
                 this.backElement.style.marginLeft = (90 * 1/this.scaleX) + "px";

@@ -40,6 +40,42 @@
             "bindings": {
                 "switchValue": {"<-": "@owner.postController.type"}
             }
+        },
+        "message": {
+            "prototype": "../message.reel",
+            "properties": {
+                "element": {"#": "message"}
+            },
+            "bindings": {
+                "post": {"<-": "@owner.postController.post"}
+            }
+        },
+        "photo": {
+            "prototype": "../photo.reel",
+            "properties": {
+                "element": {"#": "photo"}
+            },
+            "bindings": {
+                "post": {"<-": "@owner.postController.post"}
+            }
+        },
+        "link": {
+            "prototype": "../link.reel",
+            "properties": {
+                "element": {"#": "link"}
+            },
+            "bindings": {
+                "post": {"<-": "@owner.postController.post"}
+            }
+        },
+        "status": {
+            "prototype": "../status.reel",
+            "properties": {
+                "element": {"#": "status"}
+            },
+            "bindings": {
+                "post": {"<-": "@owner.postController.post"}
+            }
         }
     }
     </script>
@@ -49,7 +85,12 @@
         <div data-montage-id="overlayWrapper" class="Detail-wrapper">
             <div data-montage-id="detailOverlay" class="Detail-overlay">
                 <div data-montage-id="front" class="Detail-front">
-                    <div data-montage-id="switch" class="Detail-switch"></div>
+                    <div data-montage-id="switch" class="Detail-switch">
+                        <div data-arg="message" data-montage-id="message" class="Detail-message"></div>
+                        <div data-arg="photo" data-montage-id="photo" class="Detail-photo"></div>
+                        <div data-arg="link" data-montage-id="link" class="Detail-link"></div>
+                        <div data-arg="status" data-montage-id="status" class="Detail-status"></div>
+                    </div>
                     <button data-montage-id="close">X</button>
                 </div>
                 <div data-montage-id="back" class="Detail-back"></div>
