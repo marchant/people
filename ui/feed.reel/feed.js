@@ -59,7 +59,7 @@ exports.Feed = Component.specialize({
             setTimeout( function () {
                 // reset the flow to initial scroll position
                 if (self.templateObjects && self.templateObjects.photoFlow) {
-                    self.templateObjects.photoFlow.scroll = 14;
+                    self.templateObjects.photoFlow.scroll = 0;
                 }
                 self._displayedContentController = self.photosController;
                 self._flowHidden = false;

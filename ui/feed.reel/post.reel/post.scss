@@ -24,6 +24,10 @@ $Owner: Post;
         }
     }
 
+    &.is-shown {
+        opacity: 0;
+    }
+
     &-switch {
         position: absolute;
         left: 0px;

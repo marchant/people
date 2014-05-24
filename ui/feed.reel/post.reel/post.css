@@ -16,6 +16,9 @@
 .Post[data-path-index="1"] .Post-switch {
   top: 0px;
 }
+.Post.is-shown {
+  opacity: 0;
+}
 .Post-switch {
   position: absolute;
   left: 0px;

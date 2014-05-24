@@ -36,6 +36,7 @@
                     "element": {"#": "feedFlow"},
                     "hasElasticScrolling": true,
                     "elasticScrollingSpeed": 0.8,
+                    "hasSelectedIndexScrolling": true,
                     "linearScrollingVector": [-100, 0],
                     "cameraFov": 62,
                     "paths": [
@@ -80,7 +81,9 @@
                     ],
                     "isSelectionEnabled": true,
                     "delegate": {"@": "owner"},
-                    "slotContent": {"@": "logo"}
+                    "scrollingTransitionDuration": "600",
+                    "slotContent": {"@": "logo"},
+                    "stride": 1
 
             },
             "bindings": {
@@ -95,7 +98,7 @@
                 "element": {"#": "post"}
             },
             "bindings": {
-                "postController": {"<-": "@feedFlow:iteration.object"}
+                "iteration": {"<-": "@feedFlow:iteration"}
             }
         },
         "tween": {

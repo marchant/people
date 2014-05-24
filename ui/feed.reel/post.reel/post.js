@@ -7,6 +7,8 @@ exports.Post = Component.specialize( {
     constructor: {
         value: function Post() {
             this.super();
+            this.defineBinding("postController", {"<-": "iteration.object"});
+            this.addPathChangeListener("iteration.selected", this, "selectionChange");
         }
     },
 
@@ -15,7 +17,7 @@ exports.Post = Component.specialize( {
             this._pressComposer = new PressComposer();
             this._pressComposer.identifier = "selection";
             this._pressComposer.delegate = this;
-            this.addComposerForElement(this._pressComposer, this._switchElement);
+//            this.addComposerForElement(this._pressComposer, this._switchElement);
         }
     },
 
@@ -40,8 +42,34 @@ exports.Post = Component.specialize( {
                 postController: this.postController,
                 startElement: this._switchElement
             });
+            this.classList.add("is-shown");
+            this.postController.addEventListener("closeDetail", this, true);
         }
     },
+
+    selectionChange: {
+        value: function (value, second, thris) {
+            if(value) {
+                this.dispatchEventNamed("showDetail", true, true, {
+                     postController: this.postController,
+                     startElement: this._switchElement
+                 });
+                 this.classList.add("is-shown");
+            } else {
+                this.classList.remove("is-shown");
+            }
+
+        }
+    },
+
+
+    handleCloseDetail: {
+        value: function () {
+            this.classList.remove("is-shown");
+            this.postController.removeEventListener("closeDetail", this, true);
+        }
+    },
+
 
     handleSelectionPressEnd: {
         value: function () {
