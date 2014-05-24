@@ -62,7 +62,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
             if (this.scaleX !== null) {
                 this.backElement.innerHTML = "";
                 this.backElement.appendChild(this._clonedElement);
-                this.backElement.style.webkitTransform = ["translate3d(0px,0px,-1px) scale(",1/this.scaleX,", ",1/this.scaleY,") rotateY(-180deg)"].join('');
+                this.backElement.style.webkitTransform = ["scale(",1/this.scaleX,", ",1/this.scaleY,") rotateY(-180deg)"].join('');
                 this.backElement.style.marginLeft = (90 * 1/this.scaleX) + "px";
                 detailOverlay.style.webkitTransform = ["translate3d(",this.startX,"px,",this.startY,"px, 0px) rotateY(180deg) scale(",this.scaleX,",",this.scaleY ,")"].join('');
                 detailOverlay.style.top = detailOverlay.style.left = detailOverlay.style.right = detailOverlay.style.bottom = "0px";

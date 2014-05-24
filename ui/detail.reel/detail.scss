@@ -21,7 +21,6 @@
         left:250px;
         right:250px;
         bottom:20px;
-        @include backface-visibility(hidden);
         @include transform-origin(center center);
         @include transform-style(preserve-3d);
         @include transition(transform .7s ease-out, top .7s ease-out, left .7s ease-out, right .7s ease-out, bottom .7s ease-out );
@@ -41,5 +40,7 @@
         right:0px;
         bottom:0px;
         background-color: hsla(0,0,100%,1);
+        @include backface-visibility(hidden);
+        @include transform(translate3d(0px,0px,1px));
     }
 }

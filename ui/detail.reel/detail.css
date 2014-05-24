@@ -18,8 +18,6 @@
   left: 250px;
   right: 250px;
   bottom: 20px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
   -ms-transform-origin: center center;
@@ -54,6 +52,13 @@
   right: 0px;
   bottom: 0px;
   background-color: white;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0px, 0px, 1px);
+  -moz-transform: translate3d(0px, 0px, 1px);
+  -ms-transform: translate3d(0px, 0px, 1px);
+  -o-transform: translate3d(0px, 0px, 1px);
+  transform: translate3d(0px, 0px, 1px);
 }
 
 /*# sourceMappingURL=detail.css.map */
