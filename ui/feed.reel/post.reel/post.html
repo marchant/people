@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -7,53 +7,7 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "owner"},
-                "_switchElement": {"#": "switch"}
-            }
-        },
-        "switch": {
-            "prototype": "montage/ui/substitution.reel",
-            "properties": {
-                "element": {"#": "switch"}
-            },
-            "bindings": {
-                "switchValue": {"<-": "@owner.postController.type"}
-            }
-        },
-        "message": {
-            "prototype": "../../message.reel",
-            "properties": {
-                "element": {"#": "message"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
-        "photo": {
-            "prototype": "../../photo.reel",
-            "properties": {
-                "element": {"#": "photo"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
-        "link": {
-            "prototype": "../../link.reel",
-            "properties": {
-                "element": {"#": "link"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
-        "status": {
-            "prototype": "../../status.reel",
-            "properties": {
-                "element": {"#": "status"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
+                "element": {"#": "owner"}
             }
         }
     }
@@ -61,12 +15,13 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Post">
-        <div data-montage-id="switch" class="Post-switch">
-            <div data-arg="message" data-montage-id="message" class="Post-message"></div>
-            <div data-arg="photo" data-montage-id="photo" class="Post-photo"></div>
-            <div data-arg="link" data-montage-id="link" class="Post-link"></div>
-            <div data-arg="status" data-montage-id="status" class="Post-status"></div>
+        <div data-montage-id="photo" class="photo"></div>
+        <div data-montage-id="user" class="user">
+            <div data-montage-id="avatar" class="avatar"></div>
+            <div data-montage-id="name" class="name">Francisco Javier Román Cortés</div>
+            <div data-montage-id="date" class="date">Yesterday at 10:32 pm</div>
         </div>
+        <div data-montage-id="message" class="message"></div>
     </div>
 </body>
 </html>

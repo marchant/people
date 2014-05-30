@@ -83,9 +83,17 @@ exports.Post = Component.specialize( {
         }
     },
 
+    _postController: {
+        value: null
+    },
 
     postController: {
-        value: null
+        get: function () {
+            return this._postController;
+        },
+        set: function (value) {
+            this._postController = value;
+        }
     },
 
     _pressComposer: {

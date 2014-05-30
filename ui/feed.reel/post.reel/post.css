@@ -1,31 +1,92 @@
 .Post {
   position: absolute;
-  width: 180px;
-  height: 10px;
-  margin-left: -90px;
+  width: 220px;
+  margin-left: -110px;
+}
+.Post:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -40px;
+    left: -40px;
+    width: 300px;
+    height: 100px;
+    background: url(shadow.png);
+    background-repeat: no-repeat;
+}
+.Post:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 60px;
+    left: -40px;
+    width: 300px;
+    bottom: -40px;
+    background: url(shadow.png);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+.Post {
+    width: 220px;
+}
+.Post .photo {
+    width: 220px;
+    height: 165px;
+    background-image: url(http://www.romancortes.com/img/cat.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Post .user {
+    position: relative;
+    background: #e3e3e3;
+    height: 52px;
+}
+.Post .user .avatar {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 40px;
+    height: 40px;
+    background-image: url(http://www.romancortes.com/thumbs/becky.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Post .user .name {
+    position: absolute;
+    left: 56px;
+    top: 6px;
+    width: 157px;
+    color: #3b5998;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Post .user .date {
+    position: absolute;
+    left: 56px;
+    top: 26px;
+    color: #898f9c;
+    font-size: 12px;
+    line-height: 20px;
+}
+.Post .message {
+    background: white;
+    height: 20px;
 }
 .Post[data-path-index="0"] {
-  margin-bottom: -5px;
-}
-.Post[data-path-index="0"] .Post-switch {
-  bottom: 0px;
+  bottom: 15px;
 }
 .Post[data-path-index="1"] {
-  margin-top: -5px;
-}
-.Post[data-path-index="1"] .Post-switch {
-  top: 0px;
+  top: 15px;
 }
 .Post.is-shown {
   opacity: 0;
-}
-.Post-switch {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.7) 0px 10px 50px;
-  pointer: cursor;
 }
 
 /*# sourceMappingURL=post.css.map */
