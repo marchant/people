@@ -1,7 +1,8 @@
 .Post {
-  position: absolute;
-  width: 220px;
-  margin-left: -110px;
+    position: absolute;
+    width: 220px;
+    margin-left: -110px;
+    -webkit-transform-style: preserve-3d;
 }
 .Post:before {
     content: "";
@@ -13,6 +14,8 @@
     height: 100px;
     background: url(shadow.png);
     background-repeat: no-repeat;
+    -webkit-transform: translate3d(0,0,-40px);
+    opacity: .8;
 }
 .Post:after {
     content: "";
@@ -25,6 +28,8 @@
     background: url(shadow.png);
     background-position: left bottom;
     background-repeat: no-repeat;
+    -webkit-transform: translate3d(0,0,-40px);
+    opacity: .8;
 }
 .Post {
     width: 220px;
@@ -39,8 +44,9 @@
 }
 .Post .user {
     position: relative;
-    background: #e3e3e3;
+    background: #e7e7e7;
     height: 52px;
+    -webkit-transform-style: preserve-3d;
 }
 .Post .user .avatar {
     position: absolute;
@@ -75,9 +81,18 @@
     font-size: 12px;
     line-height: 20px;
 }
-.Post .message {
+.Post .message-wrapper {
+    height: 90px;
     background: white;
-    height: 20px;
+    padding: 10px 14px;
+}
+.Post .message {
+    color: #444;
+    font-size: 14px;
+    line-height: 23px;
+    overflow: hidden;
+    height: 69px;
+    text-overflow: ellipsis;
 }
 .Post[data-path-index="0"] {
   bottom: 15px;

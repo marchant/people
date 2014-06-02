@@ -1,10 +1,10 @@
 .Feed {
   position: absolute;
   top: 50%;
-  margin-top: -500px;
+  margin-top: -1000px;
   left: 0;
   right: 0;
-  height: 1000px;
+  height: 2000px;
 }
 .Feed-flow .montage-Flow-Repetition {
   opacity: 1;
@@ -22,10 +22,9 @@
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   pointer-events: none;
-  width: 400%;
-  height: 400%;
-  left: -200%;
-  top: -200%;
+  left: 50%;
+  top: 50%;
+  width: 100%;
   -webkit-transform: translate3d(0px, 0px, -1000px);
   -moz-transform: translate3d(0px, 0px, -1000px);
   -ms-transform: translate3d(0px, 0px, -1000px);

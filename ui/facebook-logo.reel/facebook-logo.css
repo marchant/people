@@ -1,11 +1,42 @@
-.FacebookLogo {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-  background-color: #269;
-  background-image: radial-gradient(farthest-corner at 75% 75%, gray 0%, black 100%);
+.FacebookLogo .background {
+    position: absolute;
+    width: 512px;
+    height: 512px;
+    left: -256px;
+    top: -256px;
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    -webkit-transform: translate3d(0, 0, -50px) scale3d(12, 8, 1);
 }
 
-/*# sourceMappingURL=facebook-logo.css.map */
+.FacebookLogo .logo {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    margin-left: -310px;
+    top: -200px;
+    left: -50%;
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    -webkit-transform-style: preserve-3d;
+}
+
+.FacebookLogo .logo:before {
+    content: "";
+    z-index: -1;
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 240px;
+    height: 240px;
+    background-image: url(logo-shadow.png);
+    opacity: .6;
+    -webkit-transform: translate3d(0, 0, -45px) scale3d(2, 2, 1);
+}
+
+@media (max-width: 730px) {
+    .FacebookLogo .logo {
+        display: none;
+    }
+}
