@@ -7,7 +7,45 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "owner"}
+                "element": {"#": "owner"},
+                "_postWrapper": {"#": "postWrapper"}
+            }
+        },
+        "photo": {
+            "prototype": "../../image.reel",
+            "properties": {
+                "element": {"#": "photo"},
+                "emptyImageSrc": "./assets/image/silhouette.png"
+            },
+            "bindings": {
+                "src": {"<-": "@owner.postController.imageSmall.source"}
+            }
+        },
+        "message": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "message"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.postController.post.story || @owner.postController.post.message"}
+            }
+        },
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.postController.from.name"}
+            }
+        },
+        "date": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "date"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.postController.post.updated_time"}
             }
         }
     }
@@ -15,7 +53,7 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Post">
-        <div class="post-wrapper">
+        <div data-montage-id="postWrapper" class="post-wrapper">
             <div data-montage-id="photo" class="photo"></div>
             <div data-montage-id="user" class="user">
                 <div data-montage-id="avatar" class="avatar"></div>
@@ -23,7 +61,7 @@
                 <div data-montage-id="date" class="date">Yesterday at 10:32 pm</div>
             </div>
             <div data-montage-id="message-wrapper" class="message-wrapper">
-                <div data-montage="message" class="message">
+                <div data-montage-id="message" class="message">
                     Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Cras condimentum diam massa, vel elementum quam iaculis ac. Vivamus euismod pulvinar lobortis. Vivamus suscipit tortor nec consectetur iaculis. Proin dictum turpis sit amet nunc sollicitudin pretium.
                 </div>
             </div>

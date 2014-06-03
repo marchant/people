@@ -104,10 +104,15 @@ exports.Feed = Component.specialize({
 
     handleShowDetail: {
         value: function (event) {
-// doesn't work yet
             this.templateObjects.detail.postController = event.detail.postController;
             this.templateObjects.detail.show(event.detail.startElement);
 
+        }
+    },
+
+    handleCloseDetail: {
+        value: function () {
+            this._photosController.clearSelection();
         }
     },
 

@@ -43,7 +43,7 @@ exports.Post = Component.specialize( {
                 startElement: this._switchElement
             });
             this.classList.add("is-shown");
-            this.postController.addEventListener("closeDetail", this, true);
+            this.postController.addEventListener("closeDetail", this, false);
         }
     },
 
@@ -51,10 +51,11 @@ exports.Post = Component.specialize( {
         value: function (value, second, thris) {
             if(value) {
                 this.dispatchEventNamed("showDetail", true, true, {
-                     postController: this.postController,
-                     startElement: this._switchElement
-                 });
-                 this.classList.add("is-shown");
+                    postController: this.postController,
+                    startElement: this._postWrapper
+                });
+                window.postController = this.postController;
+                this.classList.add("is-shown");
             } else {
                 this.classList.remove("is-shown");
             }
@@ -62,13 +63,6 @@ exports.Post = Component.specialize( {
         }
     },
 
-
-    handleCloseDetail: {
-        value: function () {
-            this.classList.remove("is-shown");
-            this.postController.removeEventListener("closeDetail", this, true);
-        }
-    },
 
 
     handleSelectionPressEnd: {

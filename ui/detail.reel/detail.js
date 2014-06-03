@@ -45,6 +45,10 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
     handleCloseAction: {
         value: function () {
             this.templateObjects.overlay.hide();
+
+            this.dispatchEventNamed("closeDetail", true, true, {
+                postController: this.postController
+            });
         }
     },
 
@@ -52,6 +56,8 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
         value: function () {
             if(this._startElement) {
                 this._clonedElement = this._copyNodes(this._startElement);
+                // only do it once
+                this._startElement = null;
             }
         }
     },
@@ -122,7 +128,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
         value: function (element) {
             var clonedElement = element.cloneNode(true);
             function copyCss(fromElement, toElement) {
-                toElement.cssText = getComputedStyle(fromElement);
+                toElement.style.cssText = getComputedStyle(fromElement).cssText;
                 var i = 0,
                 fromElementLength = fromElement.children.length;
                 for (i; i < fromElementLength; i++) {
