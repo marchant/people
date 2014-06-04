@@ -18,7 +18,7 @@
                 "emptyImageSrc": "./assets/image/silhouette.png"
             },
             "bindings": {
-                "src": {"<-": "@owner.postController.imageSmall.source"}
+                "src": {"<-": "@owner.postController.imageSmall.source || @owner.postController.post.picture"}
             }
         },
         "message": {

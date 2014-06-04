@@ -86,39 +86,39 @@ exports.UserController = FacebookController.specialize({
                     feed.forEach(function (post) {
                         postControllers.push(new PostController(post, service._facebook));
                     });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
-                    feed.forEach(function (post) {
-                        postControllers.push(new PostController(post, service._facebook));
-                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
+//                    feed.forEach(function (post) {
+//                        postControllers.push(new PostController(post, service._facebook));
+//                    });
                     return postControllers;
                 })
                 .then(function (postControllers) {
