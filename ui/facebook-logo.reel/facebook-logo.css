@@ -19,6 +19,7 @@
     background-image: url(logo.png);
     background-repeat: no-repeat;
     -webkit-transform-style: preserve-3d;
+    -webkit-transition: 200ms opacity;
 }
 
 .FacebookLogo .logo:before {
