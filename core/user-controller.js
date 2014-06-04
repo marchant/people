@@ -79,7 +79,7 @@ exports.UserController = FacebookController.specialize({
             if(this._feedPromise === null) {
                 this._feed = new RangeController().initWithContent([]);
                 this._feed._origin = this;
-                this._feed.avoidsEmptySelection = true;
+//                this._feed.avoidsEmptySelection = true;
                 this._feedPromise = this._getFeed()
                 .then(function (feed) {
                     var postControllers = [];
