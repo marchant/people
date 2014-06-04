@@ -31,9 +31,6 @@
     -webkit-transform: translate3d(0,0,-40px);
     opacity: .8;
 }
-.Post {
-    width: 220px;
-}
 .Post .photo {
     width: 220px;
     height: 165px;

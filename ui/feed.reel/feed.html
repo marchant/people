@@ -84,7 +84,7 @@
                 "delegate": {"@": "owner"},
                 "scrollingTransitionDuration": "600",
                 "slotContent": {"@": "logo"},
-                "stride": 1
+                "stride": 0.5
             },
             "bindings": {
                 "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
@@ -123,7 +123,7 @@
                 "element": {"#": "logo"}
             },
             "bindings": {
-                "opacity": {"<-": "1 - @feedFlow.scroll"}
+                "opacity": {"<-": "1 - @feedFlow.scroll * 2"}
             }
         },
         "detail": {
