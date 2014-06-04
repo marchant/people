@@ -1,0 +1,117 @@
+.Menu {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.Menu .logo {
+    float: left;
+    background-color: #3c5a96;
+    height: 39px;
+    width: 136px;
+    background-image: url(facebook.png);
+    background-size: 112px 23px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.Menu .selectedFeed,
+.Menu .selectedFeed:active,
+.Menu .selectedFeed:focus {
+    float: left;
+    height: 39px;
+    background: white;
+    line-height: 39px;
+    font-size: 15px;
+    font-weight: 100;
+    padding-left: 12px;
+    padding-right: 41px;
+    border-radius: 0;
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    margin: 0;
+    pointer-events: auto;
+    -webkit-transition: 100ms background;
+}
+
+.Menu .selectedFeed:active {
+    background: #e8e8e8;
+}
+
+.Menu .selectedFeed:active:after {
+    -webkit-transform: translate3d(5px, 0, 0) rotate3d(0, 0, 1, 0deg);
+    opacity: 1;
+}
+
+.Menu.expanded .selectedFeed:active:after {
+    -webkit-transform: translate3d(-5px, 0, 0) rotate3d(0, 0, 1, 180deg);
+    opacity: 1;
+}
+
+.Menu .selectedFeed:after {
+    content: "";
+    position: absolute;
+    display: block;
+    right: 16px;
+    top: 11px;
+    width: 9px;
+    height: 17px;
+    opacity: .4;
+    background-image: url(arrow.png);
+    background-size: 9px 17px;
+    background-repeat: no-repeat;
+    -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+    -webkit-transition: 200ms -webkit-transform;
+}
+
+.Menu.expanded .selectedFeed:after {
+    -webkit-transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 180deg);
+}
+
+.Menu .feedListWrapper {
+    position: absolute;
+    top: 39px;
+    bottom: 0;
+    width: 290px;
+    overflow: auto;
+    pointer-events: none;
+}
+
+.Menu .feedList {
+    background: rgba(204, 210, 224, .94);
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -webkit-transition: 400ms all;
+    -webkit-transform: translate3d(-100%,0,0);
+    list-style-type: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    pointer-events: auto;
+}
+
+.Menu.expanded .feedList {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.Menu .feedList li {
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 50px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.Menu .feedList li:active {
+    background: white;
+}

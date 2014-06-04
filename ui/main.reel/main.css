@@ -24,4 +24,5 @@
 .Main-menuButton {
   color: #fff;
   position: relative;
+  float: right;
 }

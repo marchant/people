@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "selectedFeed": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "selectedFeed"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Menu">
+        <div class="logo"></div>
+        <div data-montage-id="selectedFeed" class="selectedFeed">
+            My Feed
+        </div>
+        <div class="feedListWrapper">
+            <ul class="feedList">
+                <li><strong>My Feed</strong></li>
+                <li>Antonio Afonso Dos Santos Martins</li>
+                <li>Benoit Marchant</li>
+                <li>Bill Wathen</li>
+                <li>Fabrice Robinet</li>
+                <li>Francisco Javier Román Cortés</li>
+                <li>François Frisch</li>
+                <li>Kris Kowal</li>
+                <li>Jean François Ducarroz</li>
+                <li>Michael Koch</li>
+                <li>Mike Czepiel</li>
+                <li>Pierre Frisch</li>
+                <li>Punjabiami Chopra</li>
+                <li>Ryan Paul</li>
+                <li>Simon Luthi</li>
+                <li>Stuart Knightley</li>
+                <li>Thibault Zanini</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
