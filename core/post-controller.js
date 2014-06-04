@@ -34,7 +34,11 @@ exports.PostController = FacebookController.specialize({
     _determineFrom: {
         value: function () {
             if(this.type === "photo") {
-                return this.post.story_tags[Object.keys(this.post.story_tags).pop()][0];
+                if(this.post.with_tags) {
+                    return this.post.from;
+                } else if (this.post.story_tags) {
+                    return this.post.story_tags[Object.keys(this.post.story_tags).pop()][0];
+                }
             } else {
                 return this.post.from;
             }
