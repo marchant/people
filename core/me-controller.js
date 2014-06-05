@@ -23,6 +23,13 @@ exports.MeController = UserController.specialize(/** @lends MeController# */ {
                 self._facebook = facebook;
                 return facebook.login({scope: 'user_photos,user_friends'});
             });
+            this._loggedInFacebook.then(function (facebook) {
+
+                return facebook.me().then(function (me) {
+                    self.user = me;
+                });
+            })
+            .done();
             return this._loggedInFacebook;
         }
     },

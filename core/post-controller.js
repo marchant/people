@@ -1,5 +1,6 @@
 
 var FacebookController = require("./facebook-controller").FacebookController;
+var meController = require("./me-controller");
 var Promise = require("montage/core/promise").Promise;
 
 exports.PostController = FacebookController.specialize({
@@ -8,7 +9,7 @@ exports.PostController = FacebookController.specialize({
             this.super(post, facebook);
             this.post = post;
             this.type = this._determineType();
-            this.from = this._determineFrom();
+            this._determineFrom();
         }
     },
 
@@ -33,15 +34,40 @@ exports.PostController = FacebookController.specialize({
 
     _determineFrom: {
         value: function () {
+            var self = this;
+            var returnValue;
             if(this.type === "photo") {
-                if(this.post.with_tags) {
-                    return this.post.from;
-                } else if (this.post.story_tags) {
-                    return this.post.story_tags[Object.keys(this.post.story_tags).pop()][0];
+                if (this.post.story_tags) {
+                    this.from =  this.post.story_tags[Object.keys(this.post.story_tags).pop()][0];
+                } else {
+                    this.from = this.post.from;
                 }
             } else {
-                return this.post.from;
+                this.from = this.post.from;
             }
+            // trigger fetch
+            var friends = meController.shared.friends;
+
+            meController.shared._friendsPromise.then(function (friends) {
+                var friend;
+                if(meController.shared.user.name  === self.from.name) {
+                    friend = meController.shared.user;
+                } else {
+                    var i = 0;
+                    var friendsLength = friends.length;
+                    for (i; i < friendsLength; i++) {
+                        friend = friends[i];
+                        if(friend.name === self.from.name) {
+                            break;
+                        }
+                    }
+                }
+                self._facebook.picture(friend)
+                .then(function (picture) {
+                    return self.from.picture = picture.url;
+                }).done();
+            });
+            return returnValue;
         }
     },
     // jshint +W106

@@ -144,10 +144,10 @@ exports.UserController = FacebookController.specialize({
             if(this._friendsPromise === null) {
                 this._friends = new RangeController().initWithContent([]);
                 this._friends.avoidsEmptySelection = true;
-                this._friendsPromise = this._getFriends()
-                    .then(function (friends) {
+                this._friendsPromise = this._getFriends();
+                this._friendsPromise.then(function (friends) {
                         return Q.all(friends.map(function (friend) {
-                            return facebook.picture(friend, {redirect: true, type: "large"})
+                            return self._facebook.picture(friend, {redirect: true, type: "large"})
                                 .then(function (picture) {
                                     friend.picture = picture;
                                     return friend;
@@ -157,9 +157,9 @@ exports.UserController = FacebookController.specialize({
                                 var userControllers = [];
                                 friends.forEach(function (friend) {
                                     if(friend.name === "Jenna Lingle") {
-                                        userControllers[1] = new UserController(friend, facebook);
+                                        userControllers[1] = new exports.UserController(friend,  self._facebook);
                                     } else {
-                                        userControllers.push(new UserController(friend, facebook));
+                                        userControllers.push(new exports.UserController(friend,  self._facebook));
                                     }
 
                                 });
