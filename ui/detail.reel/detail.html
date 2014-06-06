@@ -38,9 +38,29 @@
                 "element": {"#": "photo"}
             },
             "bindings": {
-                "src": {"<-": "@owner.postController.post.picture"}
+                "src": {"<-": "@owner.postController.imageLarge.source || @owner.postController.post.picture"}
+            }
+        },
+        "avatar": {
+            "prototype": "../image.reel",
+            "properties": {
+                "element": {"#": "avatar"},
+                "emptyImageSrc": "./assets/image/silhouette.png"
+            },
+            "bindings": {
+                "src": {"<-": "@owner.postController.from.picture"}
+            }
+        },
+        "message": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "message"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.postController.post.story || @owner.postController.post.message || @owner.postController.post.name"}
             }
         }
+
     }
     </script>
 </head>
