@@ -36,6 +36,7 @@
     margin: 0;
     pointer-events: auto;
     -webkit-transition: 100ms background;
+    outline: 0;
 }
 
 .Menu .selectedFeed:active {
@@ -119,4 +120,10 @@
 
 .Menu .feedList .item:active {
     background: white;
+}
+
+.Menu .feedList .item,
+.Menu .feedList .item:active,
+.Menu .feedList .item:focus {
+    outline: 0;
 }
