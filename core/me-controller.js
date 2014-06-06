@@ -4,6 +4,10 @@
 
 var UserController = require("./user-controller").UserController;
 var facebookPromise = require("promise-facebook")("551585588293666");
+var Q = require("montage/core/promise").Promise;
+
+var loggedInDeferred;
+
 /**
  * @class MeController
  * @extends Montage
@@ -13,23 +17,34 @@ exports.MeController = UserController.specialize(/** @lends MeController# */ {
     constructor: {
         value: function MeController() {
             this.super();
+            var self = this;
+            facebookPromise.then(function (facebook) {
+                self.__loadedFacebook = facebook;
+            }).done();
+            loggedInDeferred = Q.defer();
+            this._loggedInFacebook = loggedInDeferred.promise;
         }
+    },
+
+    facebookReady: {
+        value: facebookPromise
     },
 
     login: {
         value: function () {
             var self = this;
-            this._loggedInFacebook =  facebookPromise.then(function (facebook) {
+            this._loggedInFacebook = this.__loadedFacebook.login({scope: 'user_photos,user_friends'}).then(function (facebook) {
                 self._facebook = facebook;
-                return facebook.login({scope: 'user_photos,user_friends'});
+                loggedInDeferred.resolve(facebook);
+//                self._loggedInFacebook = facebook;
+                return facebook;
+
             });
             this._loggedInFacebook.then(function (facebook) {
-
                 return facebook.me().then(function (me) {
                     self.user = me;
                 });
-            })
-            .done();
+            }).done();
             return this._loggedInFacebook;
         }
     },

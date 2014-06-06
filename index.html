@@ -25,13 +25,21 @@
         "owner": {
             "prototype": "montage/ui/loader.reel",
             "properties": {
-                "element": {"#": "loader"}
+                "element": {"#": "loader"},
+                "minimumBootstrappingDuration": 1
+            }
+        },
+        "login": {
+            "prototype": "ui/login.reel",
+            "properties": {
+                "element": {"#": "login"},
+                "loader": {"@":"owner"}
             }
         }
     }
     </script>
 </head>
 <body>
-    <div data-montage-id="loader"></div>
+    <div data-montage-id="loader"><div data-montage-id="login" id="montage-app-loader"></div></div>
 </body>
 </html>

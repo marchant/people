@@ -11,7 +11,7 @@ exports.Main = Component.specialize({
             this.application.addEventListener( "openTrailer", this, false);
 
             this.canDrawGate.setField("dataLoaded", false);
-            this._initialDataLoad = this.meController.login();
+            this._initialDataLoad = this.meController._loggedInFacebook;
         }
     },
 
