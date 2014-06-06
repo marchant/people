@@ -9,9 +9,6 @@
             "properties": {
                 "element": {"#": "owner"},
                 "_postWrapper": {"#": "postWrapper"}
-            },
-            "bindings": {
-                "date": {"<-": "@owner.postController.post.updated_time"}
             }
         },
         "photo": {
@@ -53,13 +50,20 @@
                 "value": {"<-": "@owner.postController.from.name"}
             }
         },
+        "dateConverter": {
+            "prototype": "montage/core/converter/date-converter",
+            "properties": {
+                "pattern": "MMM d @ h:s"
+            }
+        },
         "date": {
             "prototype": "montage/ui/text.reel",
             "properties": {
-                "element": {"#": "date"}
+                "element": {"#": "date"},
+                "converter": {"@": "dateConverter"}
             },
             "bindings": {
-                "value": {"<-": "@owner.date"}
+                "value": {"<-": "@owner.postController.post.updated_time"}
             }
         }
     }
