@@ -9,6 +9,10 @@ exports.Post = Component.specialize( {
             this.super();
             this.defineBinding("postController", {"<-": "iteration.object"});
             this.addPathChangeListener("iteration.selected", this, "selectionChange");
+            this.defineBinding("classList.has('is-photo' )", {"<-": "postController.type == 'photo'"});
+            this.defineBinding("classList.has('is-link' )", {"<-": "postController.type == 'link'"});
+            this.defineBinding("classList.has('is-message' )", {"<-": "postController.type == 'status' || postController.type == 'message'"});
+            this.defineBinding("classList.has('is-tag' )", {"<-": "postController.post.status_type == 'tagged_in_photo'"});
         }
     },
 
