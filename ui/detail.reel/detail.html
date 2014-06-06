@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -32,49 +32,13 @@
                 }
             ]
         },
-        "switch": {
-            "prototype": "montage/ui/substitution.reel",
-            "properties": {
-                "element": {"#": "switch"}
-            },
-            "bindings": {
-                "switchValue": {"<-": "@owner.postController.type"}
-            }
-        },
-        "message": {
-            "prototype": "../message.reel",
-            "properties": {
-                "element": {"#": "message"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
         "photo": {
-            "prototype": "../photo.reel",
+            "prototype": "digit/ui/image.reel",
             "properties": {
                 "element": {"#": "photo"}
             },
             "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
-        "link": {
-            "prototype": "../link.reel",
-            "properties": {
-                "element": {"#": "link"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
-            }
-        },
-        "status": {
-            "prototype": "../status.reel",
-            "properties": {
-                "element": {"#": "status"}
-            },
-            "bindings": {
-                "post": {"<-": "@owner.postController.post"}
+                "src": {"<-": "@owner.postController.post.picture"}
             }
         }
     }
@@ -85,13 +49,14 @@
         <div data-montage-id="overlayWrapper" class="Detail-wrapper">
             <div data-montage-id="detailOverlay" class="Detail-overlay">
                 <div data-montage-id="front" class="Detail-front">
-                    <div data-montage-id="switch" class="Detail-switch">
-                        <div data-arg="message" data-montage-id="message" class="Detail-message"></div>
-                        <div data-arg="photo" data-montage-id="photo" class="Detail-photo"></div>
-                        <div data-arg="link" data-montage-id="link" class="Detail-link"></div>
-                        <div data-arg="status" data-montage-id="status" class="Detail-status"></div>
+                    <button data-montage-id="close" class="close">×</button>
+                    <img data-montage-id="photo" class="Detail-photo">
+                    <div class="description">
+                        <div data-montage-id="avatar" class="Detail-avatar"></div>
+                        <div data-montage-id="message" class="Detail-message">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec faucibus lectus. Aliquam pulvinar tincidunt purus, at luctus nisl malesuada in. Suspendisse potenti. Morbi eget dolor tristique, aliquet nibh vel, ultricies quam. Nulla sollicitudin nisi sit amet molestie convallis. Vestibulum gravida augue risus, ut porttitor nulla faucibus quis. Donec feugiat consectetur enim. Nam eu nibh eros. Pellentesque dignissim iaculis luctus. Sed at nulla sed lectus aliquam lobortis quis nec massa. Suspendisse facilisis massa a leo tristique suscipit eget at elit. Curabitur auctor turpis sed hendrerit facilisis. Etiam et augue adipiscing, aliquam nulla a, pulvinar ipsum.
+                        </div>
                     </div>
-                    <button data-montage-id="close">X</button>
                 </div>
                 <div data-montage-id="back" class="Detail-back"></div>
             </div>

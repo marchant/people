@@ -15,8 +15,9 @@
 .Detail-overlay {
   position: absolute;
   top: 20px;
-  left: 250px;
-  right: 250px;
+  left: 50%;
+  margin-left: -275px;
+  width: 550px;
   bottom: 20px;
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -51,7 +52,6 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: white;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translate3d(0px, 0px, 1px);
@@ -59,6 +59,58 @@
   -ms-transform: translate3d(0px, 0px, 1px);
   -o-transform: translate3d(0px, 0px, 1px);
   transform: translate3d(0px, 0px, 1px);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  overflow: auto;
 }
 
+.Detail-front .close,
+.Detail-front .close:active,
+.Detail-front .close:focus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 36px;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+    pointer-events: auto;
+    outline: 0;
+    color: white;
+    text-shadow: 0 0 8px black;
+}
+.Detail-front .Detail-photo {
+    display: block;
+    width: 100%;
+}
+.Detail-front .description {
+    background: white;
+}
+.Detail-front .Detail-avatar {
+    position: absolute;
+    margin: 20px 24px;
+    width: 64px;
+    height: 64px;
+    background: url(http://www.romancortes.com/img/becky.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Detail-front .Detail-message {
+    padding: 14px 24px 22px 112px;
+    min-height: 88px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 28px;
+}
 /*# sourceMappingURL=detail.css.map */
