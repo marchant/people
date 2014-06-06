@@ -96,6 +96,68 @@ exports.Post = Component.specialize( {
 
     _switchElement: {
         value: null
+    },
+
+    _months: {
+        value: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
+    },
+
+    _date: {
+        value: null
+    },
+
+    date: {
+        get: function () {
+            return this._date;
+        },
+        set: function (value) {
+            if (typeof value === "string") {
+                var year = value.substr(0, 4) * 1,
+                    month = value.substr(5, 2) * 1,
+                    day = value.substr(8, 2) * 1,
+                    hours = value.substr(11, 2) * 1,
+                    minutes = value.substr(14, 2) * 1,
+                    now = new Date(),
+                    today = new Date(now.getFullYear(), now.getMonth(), now.getDay()).valueOf(),
+                    yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDay() - 1).valueOf(),
+                    postDay = new Date(year, month - 1, day - 1).valueOf(),
+                    time;
+
+                if (postDay === today) {
+                    this._date = "Today";
+                } else {
+                    if (postDay === yesterday) {
+                        this._date = "Yesterday";
+                    } else {
+                        this._date = this._months[month - 1] + " " + day;
+                    }
+                }
+                if (hours < 12) {
+                    if (hours) {
+                        time = hours + ":" + minutes + "am";
+                    } else {
+                        // 00:00 is 12:00am
+                        time = "12:" + minutes + "am";
+                    }
+                } else {
+                    time = (hours - 12) + ":" + minutes + "pm";
+                }
+                this._date += " at " + time;
+            }
+        }
     }
 
 });

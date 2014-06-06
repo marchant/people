@@ -9,6 +9,9 @@
             "properties": {
                 "element": {"#": "owner"},
                 "_postWrapper": {"#": "postWrapper"}
+            },
+            "bindings": {
+                "date": {"<-": "@owner.postController.post.updated_time"}
             }
         },
         "photo": {
@@ -56,7 +59,7 @@
                 "element": {"#": "date"}
             },
             "bindings": {
-                "value": {"<-": "@owner.postController.post.updated_time"}
+                "value": {"<-": "@owner.date"}
             }
         }
     }
