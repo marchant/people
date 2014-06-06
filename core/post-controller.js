@@ -94,10 +94,13 @@ exports.PostController = FacebookController.specialize({
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
                 this._imagesPromise.then(function (images) {
-                    images.sort(ascImage);
-                    service.dispatchBeforeOwnPropertyChange("imageSmall", service._imageSmall);
-                    service._imageSmall = images[0];
-                    service.dispatchOwnPropertyChange("imageSmall", service._imageSmall);
+                    if (images && images.length > 0) {
+                        images.sort(descImage);
+                        service.dispatchBeforeOwnPropertyChange("imageSmall", service._imageSmall);
+                        service._imageSmall = images[images.length > 1 ? 1 : 0];
+                        service.dispatchOwnPropertyChange("imageSmall", service._imageSmall);
+
+                    }
                 })
                 .done();
             }
@@ -111,10 +114,12 @@ exports.PostController = FacebookController.specialize({
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
                 this._imagesPromise.then(function (images) {
-                    images.sort(descImage);
-                    service.dispatchBeforeOwnPropertyChange("imageLarge", service._imageLarge);
-                    service._imageLarge = images[0];
-                    service.dispatchOwnPropertyChange("imageLarge", service._imageLarge);
+                    if (images && images.length > 0) {
+                        images.sort(ascImage);
+                        service.dispatchBeforeOwnPropertyChange("imageLarge", service._imageLarge);
+                        service._imageLarge = images[0];
+                        service.dispatchOwnPropertyChange("imageLarge", service._imageLarge);
+                    }
                 })
                 .done();
             }
