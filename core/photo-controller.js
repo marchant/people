@@ -7,6 +7,7 @@ exports.PhotoController = FacebookController.specialize({
         value: function PhotoController(photo, facebook) {
             this.super(photo, facebook);
             this.photo = photo;
+            this.post = photo;
         }
     },
 

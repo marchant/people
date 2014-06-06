@@ -27,6 +27,9 @@
             "prototype": "ui/menu.reel",
             "properties": {
                 "element": {"#": "menu"}
+            },
+            "bindings": {
+                "meController": {"<-": "@owner.meController"}
             }
         },
         "feed": {
@@ -35,7 +38,7 @@
                 "element": {"#": "feed"}
             },
             "bindings": {
-                "photosController": {"<-": "@owner.meController.feed"}
+                "postsController": {"<-": "@menu.postsController"}
             }
         }
     }

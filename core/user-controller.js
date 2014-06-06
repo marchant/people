@@ -33,7 +33,6 @@ exports.UserController = FacebookController.specialize({
             if(this._photosPromise === null) {
                 this._photos = new RangeController().initWithContent([]);
                 this._photos._origin = this;
-                this._photos.avoidsEmptySelection = true;
                 this._photosPromise = this._getPhotos()
                 .then(function (photoControllers) {
                     service.photos.content.push.apply(service.photos.content, photoControllers);
@@ -52,17 +51,25 @@ exports.UserController = FacebookController.specialize({
         value: function () {
             var self = this;
             return self._facebook
-                .albums(self.friend)
+                .albums(self.user)
                 .then(function (albums) {
-                    return albums[0];
+                    return Q.all(
+                        albums.map(function (album) {
+                            return self._facebook.albumPhotos(album);
+                        })
+                    );
                 })
-                .then(function (album) {
-                    return self._facebook.albumPhotos(album);
+                .then(function (photosForAlbum) {
+                    var allPhotos = [];
+                    photosForAlbum.map(function (photos) {
+                        allPhotos.push.apply(allPhotos, photos);
+                    });
+                    return allPhotos;
                 })
                 .then(function (photos) {
                     var photoControllers = [];
                     photos.forEach(function (photo) {
-                        photoControllers.push(new PhotoController(photo, self._facebook));
+                        photoControllers.push(new PostController(photo, self._facebook));
                     });
                     return photoControllers;
                 });
@@ -79,7 +86,6 @@ exports.UserController = FacebookController.specialize({
             if(this._feedPromise === null) {
                 this._feed = new RangeController().initWithContent([]);
                 this._feed._origin = this;
-//                this._feed.avoidsEmptySelection = true;
                 this._feedPromise = this._getFeed()
                 .then(function (feed) {
                     var postControllers = [];
@@ -146,30 +152,13 @@ exports.UserController = FacebookController.specialize({
                 this._friends.avoidsEmptySelection = true;
                 this._friendsPromise = this._getFriends();
                 this._friendsPromise.then(function (friends) {
-                        return Q.all(friends.map(function (friend) {
-                            return self._facebook.picture(friend, {redirect: true, type: "large"})
-                                .then(function (picture) {
-                                    friend.picture = picture;
-                                    return friend;
-                                });
-                            }))
-                            .then(function (friends) {
-                                var userControllers = [];
-                                friends.forEach(function (friend) {
-                                    if(friend.name === "Jenna Lingle") {
-                                        userControllers[1] = new exports.UserController(friend,  self._facebook);
-                                    } else {
-                                        userControllers.push(new exports.UserController(friend,  self._facebook));
-                                    }
-
-                                });
-                                return userControllers;
-                            });
-                    })
-                    .then(function (userControllers) {
-                        self.friends.content.push.apply(self.friends.content, userControllers);
-                    })
-                    .done();
+                    var userControllers = [];
+                    friends.map(function (friend) {
+                        userControllers.push(new exports.UserController(friend, self._facebook));
+                    });
+                    self.friends.content.push.apply(self.friends.content, userControllers);
+                })
+                .done();
             }
             return this._friends;
         }

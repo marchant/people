@@ -10,10 +10,13 @@
                 "element": {"#": "owner"}
             }
         },
-        "selectedFeed": {
-            "prototype": "digit/ui/button.reel",
+        "toggle": {
+            "prototype": "../blank/button.reel",
             "properties": {
-                "element": {"#": "selectedFeed"}
+                "element": {"#": "toggle"}
+            },
+            "bindings": {
+                "label": {"<-": "@owner._selectedFeedName"}
             },
             "listeners": [
                 {
@@ -21,6 +24,40 @@
                     "listener": {"@": "owner"}
                 }
             ]
+        },
+        "selectMyFeed": {
+            "prototype": "../blank/button.reel",
+            "properties": {
+                "element": {"#": "selectMyFeed"}
+            },
+            "bindings": {
+                "label": {"<-": "@owner.myFeedName"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "friends": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "friends"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "contentController": {"<-": "@owner.friendsController"}
+            }
+        },
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@friends:iteration.object.user.name"}
+            }
         }
     }
     </script>
@@ -28,29 +65,14 @@
 <body>
     <div data-montage-id="owner" class="Menu">
         <div class="logo"></div>
-        <div data-montage-id="selectedFeed" class="selectedFeed">
-            My Feed
-        </div>
+        <div data-montage-id="toggle" class="selectedFeed"></div>
         <div class="feedListWrapper">
-            <ul class="feedList">
-                <li><strong>My Feed</strong></li>
-                <li>Antonio Afonso Dos Santos Martins</li>
-                <li>Benoit Marchant</li>
-                <li>Bill Wathen</li>
-                <li>Fabrice Robinet</li>
-                <li>Francisco Javier Román Cortés</li>
-                <li>François Frisch</li>
-                <li>Kris Kowal</li>
-                <li>Jean François Ducarroz</li>
-                <li>Michael Koch</li>
-                <li>Mike Czepiel</li>
-                <li>Pierre Frisch</li>
-                <li>Punjabiami Chopra</li>
-                <li>Ryan Paul</li>
-                <li>Simon Luthi</li>
-                <li>Stuart Knightley</li>
-                <li>Thibault Zanini</li>
-            </ul>
+            <div class="feedList">
+                <div data-montage-id="selectMyFeed" class="item"></div>
+                <ul data-montage-id="friends">
+                    <li data-montage-id="name" class="item"></li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>

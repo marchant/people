@@ -23,20 +23,20 @@ exports.Feed = Component.specialize({
         }
     },
 
-    _photosController: {
+    _postsController: {
         value: null
     },
 
-    photosController: {
+    postsController: {
         get: function () {
-            return this._photosController;
+            return this._postsController;
         },
         set: function (value) {
             if (value == null) { return; }
-            this._photosController = value;
-            if (this._photosController == null) {
+            this._postsController = value;
+            if (this._postsController == null) {
                 // first time
-                this._displayedContentController = this._photosController;
+                this._displayedContentController = this._postsController;
                 this._flowHidden = false;
             } else {
                 this._startChangeCategoryTransition();
@@ -58,10 +58,10 @@ exports.Feed = Component.specialize({
             // wait .5s until the fade in/out effect is completed
             setTimeout( function () {
                 // reset the flow to initial scroll position
-                if (self.templateObjects && self.templateObjects.photoFlow) {
-                    self.templateObjects.photoFlow.scroll = 0;
+                if (self.templateObjects && self.templateObjects.feedFlow) {
+                    self.templateObjects.feedFlow.scroll = 0;
                 }
-                self._displayedContentController = self.photosController;
+                self._displayedContentController = self.postsController;
                 self._flowHidden = false;
                 self._detailsHidden = false;
             }, 800 );
@@ -112,7 +112,7 @@ exports.Feed = Component.specialize({
 
     handleCloseDetail: {
         value: function () {
-            this._photosController.clearSelection();
+            this._postsController.clearSelection();
         }
     },
 
