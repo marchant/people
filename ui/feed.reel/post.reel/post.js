@@ -21,7 +21,6 @@ exports.Post = Component.specialize( {
             this._pressComposer = new PressComposer();
             this._pressComposer.identifier = "selection";
             this._pressComposer.delegate = this;
-//            this.addComposerForElement(this._pressComposer, this._switchElement);
         }
     },
 
@@ -52,7 +51,7 @@ exports.Post = Component.specialize( {
     },
 
     selectionChange: {
-        value: function (value, second, thris) {
+        value: function (value) {
             if(value) {
                 this.dispatchEventNamed("showDetail", true, true, {
                     postController: this.postController,

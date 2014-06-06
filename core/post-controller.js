@@ -24,7 +24,7 @@ exports.PostController = FacebookController.specialize({
                 } else {
                     return "status";
                 }
-            } else if (post.type === "photo") {
+            } else if (post.type === "photo" || post.images) {
                 return "photo";
             } else if (post.type === "link") {
                 return "link";
@@ -94,8 +94,9 @@ exports.PostController = FacebookController.specialize({
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
                 this._imagesPromise.then(function (images) {
+                    images.sort(ascImage);
                     service.dispatchBeforeOwnPropertyChange("imageSmall", service._imageSmall);
-                    service._imageSmall = images[1];
+                    service._imageSmall = images[0];
                     service.dispatchOwnPropertyChange("imageSmall", service._imageSmall);
                 })
                 .done();
@@ -110,8 +111,9 @@ exports.PostController = FacebookController.specialize({
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
                 this._imagesPromise.then(function (images) {
+                    images.sort(descImage);
                     service.dispatchBeforeOwnPropertyChange("imageLarge", service._imageLarge);
-                    service._imageLarge = images[5];
+                    service._imageLarge = images[0];
                     service.dispatchOwnPropertyChange("imageLarge", service._imageLarge);
                 })
                 .done();
@@ -128,10 +130,15 @@ exports.PostController = FacebookController.specialize({
         value: function () {
             var self = this;
             if(self.type === "photo") {
-                // camelCase
-                // jshint -W106
-                return self._facebook.photoImages(self.post.object_id);
-                // jshint +W106
+
+                if(self.post.images) {
+                    return Promise.resolve(self.post.images);
+                } else {
+                    // camelCase
+                    // jshint -W106
+                    return self._facebook.photoImages(self.post.object_id);
+                    // jshint +W106
+                }
             } else {
                 return Promise.resolve([]);
             }
@@ -139,3 +146,23 @@ exports.PostController = FacebookController.specialize({
     }
 
 });
+
+function descImage(a, b) {
+    if (a.width < b.width) {
+        return -1;
+    } else if (a.width > b.width) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function ascImage(a, b) {
+    if (a.width < b.width) {
+        return 1;
+    } else if (a.width > b.width) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
