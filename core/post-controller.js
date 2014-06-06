@@ -93,6 +93,8 @@ exports.PostController = FacebookController.specialize({
             var service = this;
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
+            }
+            if(this._imageSmall === null) {
                 this._imagesPromise.then(function (images) {
                     if (images && images.length > 0) {
                         images.sort(descImage);
@@ -113,6 +115,8 @@ exports.PostController = FacebookController.specialize({
             var service = this;
             if(this._imagesPromise === null) {
                 this._imagesPromise = this._getImages();
+            }
+            if(this._imageLarge === null) {
                 this._imagesPromise.then(function (images) {
                     if (images && images.length > 0) {
                         images.sort(ascImage);
