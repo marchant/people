@@ -1,3 +1,7 @@
+.FacebookLogo {
+    display: none;
+}
+
 .FacebookLogo .background {
     position: absolute;
     width: 512px;

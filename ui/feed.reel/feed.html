@@ -40,6 +40,7 @@
                 "cameraFov": 90,
                 "cameraPosition": [0, 0, 1000],
                 "cameraTargetPoint": [0, 0, 0],
+                "boundingBoxSize": [10000000, 10000000, 10000000],
                 "paths": [
                     {
                         "knots": [
@@ -88,8 +89,7 @@
             },
             "bindings": {
                 "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
-                "contentController": {"<-": "@owner._displayedContentController"},
-                "cameraPosition": {"<-": "@orientation.output"}
+                "contentController": {"<-": "@owner._displayedContentController"}
             }
         },
         "post": {

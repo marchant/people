@@ -6,6 +6,7 @@
 }
 .Post:before {
     content: "";
+    display: none;
     position: absolute;
     z-index: -1;
     top: -40px;
@@ -19,6 +20,7 @@
 }
 .Post:after {
     content: "";
+    display: none;
     position: absolute;
     z-index: -1;
     top: 60px;
@@ -38,12 +40,16 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+        display: none;
+
 }
 .Post .user {
     position: relative;
     background: #e7e7e7;
     height: 52px;
     -webkit-transform-style: preserve-3d;
+        display: none;
+
 }
 .Post .user .avatar {
     position: absolute;
@@ -55,6 +61,8 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+        display: none;
+
 }
 .Post .user .name {
     position: absolute;
@@ -69,6 +77,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+        display: none;
+
 }
 .Post .user .date {
     position: absolute;
@@ -77,6 +87,8 @@
     color: #898f9c;
     font-size: 12px;
     line-height: 20px;
+        display: none;
+
 }
 .Post .message-wrapper {
     height: 90px;
@@ -84,6 +96,7 @@
     padding: 10px 14px;
 }
 .Post .message {
+    display: none;
     color: #444;
     font-size: 14px;
     line-height: 23px;

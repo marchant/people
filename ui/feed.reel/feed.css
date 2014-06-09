@@ -8,9 +8,9 @@
 }
 .Feed-flow .montage-Flow-Repetition {
   opacity: 1;
-  -webkit-transition: opacity 0.5s;
+  /*-webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s;*/
 }
 .Feed-flow.is-hidden .montage-Flow-Repetition {
   opacity: 0;
