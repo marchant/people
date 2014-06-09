@@ -9,9 +9,6 @@ exports.Main = Component.specialize({
     constructor: {
         value: function Main () {
             this.application.addEventListener( "openTrailer", this, false);
-
-            this.canDrawGate.setField("dataLoaded", false);
-            this._initialDataLoad = this.meController._loggedInFacebook;
         }
     },
 
@@ -21,15 +18,6 @@ exports.Main = Component.specialize({
 
     _initialDataLoad: {
         value: null
-    },
-
-    templateDidLoad: {
-        value: function () {
-            var self = this;
-            self._initialDataLoad.then(function () {
-                self.canDrawGate.setField("dataLoaded", true);
-            }).done();
-        }
     },
 
     _zoomed: {

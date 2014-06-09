@@ -33,23 +33,45 @@ exports.MeController = UserController.specialize(/** @lends MeController# */ {
     login: {
         value: function () {
             var self = this;
-            this._loggedInFacebook = this.__loadedFacebook.login({scope: 'user_photos,user_friends'}).then(function (facebook) {
+            this.__loadedFacebook.login({scope: 'user_photos,user_friends'}).then(function (facebook) {
                 self._facebook = facebook;
                 loggedInDeferred.resolve(facebook);
-//                self._loggedInFacebook = facebook;
                 return facebook;
 
             });
-            this._loggedInFacebook.then(function (facebook) {
-                return facebook.me().then(function (me) {
-                    self.user = me;
-                });
-            }).done();
-            return this._loggedInFacebook;
+            return this._load();
         }
     },
 
+    loadWithoutLogin: {
+        value: function () {
+            var self = this;
+            facebookPromise.then(function (facebook) {
+                self._facebook = facebook;
+                loggedInDeferred.resolve(facebook);
+                return facebook;
+            });
+            return this._load();
+        }
+    },
+
+    _load: {
+        value: function () {
+            var self = this;
+            return this._loggedInFacebook.then(function (facebook) {
+                return facebook.me().then(function (me) {
+                    self.user = me;
+                }).thenResolve(facebook);
+            });
+        }
+    },
+
+
     _loggedInFacebook: {
+        value: null
+    },
+
+    __loadedFacebook: {
         value: null
     },
 

@@ -11,6 +11,12 @@
                 "mainContent": {"#": "mainContent"}
             }
         },
+        "login": {
+            "prototype": "ui/login.reel",
+            "properties": {
+                "element": {"#": "login"}
+            }
+        },
         "menu": {
             "prototype": "ui/menu.reel",
             "properties": {
@@ -34,7 +40,8 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Main">
-        <div data-montage-id="menu" class="menu"></div>
+        <div data-montage-id="login" class="Main-login"></div>
+        <div data-montage-id="menu" class="Main-menu"></div>
         <div data-montage-id="mainContent" class="Main-content">
             <div data-montage-id="feed" class="Main-feed"></div>
             <!--<div data-montage-id="details" class="Main-details"></div>-->

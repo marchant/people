@@ -14,15 +14,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-}
-.Main-details .details-fade-out {
-  -webkit-transition: -webkit-transform 0.35s;
-  -moz-transition: -moz-transform 0.35s;
-  transition: transform 0.35s;
   opacity: 0;
 }
-.Main-menuButton {
-  color: #fff;
-  position: relative;
-  float: right;
+.Main.is-loggedIn .Main-content {
+  opacity: 1;
+}
+.Main-menu {
+  opacity: 0;
+}
+.Main.is-loggedIn .Main-menu {
+  opacity: 1;
 }
