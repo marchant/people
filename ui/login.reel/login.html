@@ -21,13 +21,23 @@
                     "listener": {"@": "owner"}
                 }
             ]
-        }
+        },
+        "overlay": {
+            "prototype": "montage/ui/overlay.reel",
+            "properties": {
+                "element": {"#": "loginOverlay"},
+                "delegate": {"@": "owner"}
+            }
+        },
+
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="Login">
-        <button data-montage-id="login">Login</button>
+        <div data-montage-id="loginOverlay" class="Login-overlay">
+            <button data-montage-id="login">Login</button>
+        </div>
     </div>
 </body>
 </html>

@@ -35,7 +35,7 @@ exports.Login = Component.specialize(/** @lends Login# */ {
                     self.loader.removeContent();
                 }
             }).done();
-
+            this.templateObjects.overlay.show();
 
         }
     },
@@ -46,5 +46,6 @@ exports.Login = Component.specialize(/** @lends Login# */ {
             this.loader.removeContent();
         }
     }
+
 
 });
