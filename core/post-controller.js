@@ -10,6 +10,7 @@ exports.PostController = FacebookController.specialize({
             this.post = post;
             this.type = this._determineType();
             this._determineFrom();
+            this._determineText();
         }
     },
 
@@ -72,11 +73,23 @@ exports.PostController = FacebookController.specialize({
     },
     // jshint +W106
 
+    _determineText: {
+        value: function () {
+            //@owner.postController.post.(story || message || name)
+            this.text = this.post.story || this.post.message || this.post.name;
+        }
+    },
+
+
     post: {
         value: null
     },
 
     type: {
+        value: null
+    },
+
+    text: {
         value: null
     },
 
@@ -91,20 +104,25 @@ exports.PostController = FacebookController.specialize({
     imageSmall: {
         get: function () {
             var service = this;
-            if(this._imagesPromise === null) {
-                this._imagesPromise = this._getImages();
-            }
-            if(this._imageSmall === null) {
-                this._imagesPromise.then(function (images) {
-                    if (images && images.length > 0) {
-                        images.sort(descImage);
-                        service.dispatchBeforeOwnPropertyChange("imageSmall", service._imageSmall);
-                        service._imageSmall = images[images.length > 1 ? 1 : 0];
-                        service.dispatchOwnPropertyChange("imageSmall", service._imageSmall);
-
-                    }
-                })
-                .done();
+            if (this.type === "link") {
+                this._imageSmall = {source:this.post.picture};
+            } else {
+                if(this._imagesPromise === null) {
+                    this._imagesPromise = this._getImages();
+                }
+                if(this._imageSmall === null) {
+                    this._imagesPromise.then(function (images) {
+                        if (images && images.length > 0) {
+                            images.sort(descImage);
+                            service.dispatchBeforeOwnPropertyChange("imageSmall", service._imageSmall);
+                            service._imageSmall = images[images.length > 1 ? 1 : 0];
+                            service.dispatchOwnPropertyChange("imageSmall", service._imageSmall);
+                        } else if (service.post.picture != null) {
+                            console.log("No imageSmall for ", service);
+                        }
+                    })
+                    .done();
+                }
             }
             return this._imageSmall;
         }
@@ -113,19 +131,25 @@ exports.PostController = FacebookController.specialize({
     imageLarge: {
         get: function () {
             var service = this;
-            if(this._imagesPromise === null) {
-                this._imagesPromise = this._getImages();
-            }
-            if(this._imageLarge === null) {
-                this._imagesPromise.then(function (images) {
-                    if (images && images.length > 0) {
-                        images.sort(ascImage);
-                        service.dispatchBeforeOwnPropertyChange("imageLarge", service._imageLarge);
-                        service._imageLarge = images[0];
-                        service.dispatchOwnPropertyChange("imageLarge", service._imageLarge);
-                    }
-                })
-                .done();
+            if (this.type === "link") {
+                this._imageSmall = {source:this.post.picture};
+            } else {
+                if (this._imagesPromise === null) {
+                    this._imagesPromise = this._getImages();
+                }
+                if (this._imageLarge === null) {
+                    this._imagesPromise.then(function (images) {
+                        if (images && images.length > 0) {
+                            images.sort(ascImage);
+                            service.dispatchBeforeOwnPropertyChange("imageLarge", service._imageLarge);
+                            service._imageLarge = images[0];
+                            service.dispatchOwnPropertyChange("imageLarge", service._imageLarge);
+                        } else {
+                            console.log("No imageLarge for ", service);
+                        }
+                    })
+                    .done();
+                }
             }
             return this._imageLarge;
         }

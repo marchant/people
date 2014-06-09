@@ -18,7 +18,7 @@
                 "emptyImageSrc": "./assets/image/silhouette.png"
             },
             "bindings": {
-                "src": {"<-": "@owner.postController.imageSmall.source || @owner.postController.post.picture"}
+                "src": {"<-": "@owner.postController.imageSmall.source"}
             }
         },
         "avatar": {
@@ -38,7 +38,7 @@
                 "element": {"#": "message"}
             },
             "bindings": {
-                "value": {"<-": "@owner.postController.post.story || @owner.postController.post.message || @owner.postController.post.name"}
+                "value": {"<-": "@owner.postController.text"}
             }
         },
         "name": {
