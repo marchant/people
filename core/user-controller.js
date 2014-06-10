@@ -94,6 +94,13 @@ exports.UserController = FacebookController.specialize({
                     });
                     return postControllers;
                 })
+                //preload a certian number of images
+                .then(function (postControllers) {
+                    return Q.all(postControllers.slice(0,20).map(function (postController) {
+                        postController.imageSmall;
+                        return postController._imagesPromise;
+                    })).thenResolve(postControllers);
+                })
                 .then(function (postControllers) {
                     service.feed.content.push.apply(service.feed.content, postControllers);
                 })
