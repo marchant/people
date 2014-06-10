@@ -3,6 +3,7 @@
     width: 220px;
     margin-left: -110px;
     -webkit-transform-style: preserve-3d;
+    background-color: white;
 }
 .Post:before {
     content: "";
@@ -34,7 +35,6 @@
 .Post .photo {
     width: 220px;
     height: 165px;
-    background-image: url(http://www.romancortes.com/img/cat.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,7 +51,6 @@
     left: 8px;
     width: 40px;
     height: 40px;
-    background-image: url(http://www.romancortes.com/thumbs/becky.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -101,4 +100,37 @@
   opacity: 0;
 }
 
-/*# sourceMappingURL=post.css.map */
+.Post.is-link .photo {
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.Post.is-link .photo:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 172px;
+    width: 32px;
+    bottom: 32px;
+    background: url(safari_32x32.png);
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.Post.is-message .photo {
+    background-size: 50%;
+}
+
+.Post.is-message .photo:after {
+    content: "";
+    position: absolute;
+    top: 29px;
+    left: 130px;
+    width: 52px;
+    height: 40px;
+    background: url(balloon.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
