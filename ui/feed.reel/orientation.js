@@ -67,9 +67,9 @@ exports.Orientation = Montage.specialize(/** @lends Orientation# */ {
     _updateOrientation: {
         value: function (alpha, beta, gamma) {
             this.orientation = [
-                alpha + 0.5*(this.orientation[0] - alpha),
-                beta + 0.5*(this.orientation[1] - beta),
-                gamma + 0.5*(this.orientation[2] - gamma)
+                alpha + 0.8*(this.orientation[0] - alpha),
+                beta + 0.8*(this.orientation[1] - beta),
+                gamma + 0.8*(this.orientation[2] - gamma)
             ];
         }
     },
