@@ -32,33 +32,21 @@ exports.Post = Component.specialize( {
         }
     },
 
-    handleSelectionPressStart: {
-        value: function () {
-
-        }
-    },
-
-
-    handleSelectionPress: {
-        value: function () {
-            this.dispatchEventNamed("showDetail", true, true, {
-                postController: this.postController,
-                startElement: this._switchElement
-            });
-            this.classList.add("is-shown");
-            this.postController.addEventListener("closeDetail", this, false);
-        }
-    },
-
     selectionChange: {
         value: function (value) {
+            var self = this;
             if(value) {
-                this.dispatchEventNamed("showDetail", true, true, {
-                    postController: this.postController,
-                    startElement: this._postWrapper
-                });
-                window.postController = this.postController;
-                this.classList.add("is-shown");
+                if (this.postController.type === "photo") {
+                    this.dispatchEventNamed("showDetail", true, true, {
+                        postController: this.postController,
+                        startElement: this._postWrapper
+                    });
+                    setTimeout(function () {
+                        self.classList.add("is-shown");
+                    }, 100);
+                } else if (this.postController.type === "link") {
+                    window.open(this.postController.post.link, "link");
+                }
             } else {
                 this.classList.remove("is-shown");
             }

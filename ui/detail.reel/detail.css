@@ -37,6 +37,9 @@
   -o-transform: translate3d(0px, 0px, 0px) rotateY(0deg) scale(1);
   transform: translate3d(0px, 0px, 0px) rotateY(0deg) scale(1);
 }
+.Detail-overlay.is-booting {
+    opacity: 0;
+}
 .Detail-back {
   position: absolute;
   width: 180px;
@@ -88,8 +91,28 @@
     text-shadow: 0 0 8px black;
 }
 .Detail-front .Detail-photo {
+    position: absolute;
+    display: block;
+    width: 0px;
+}
+.Detail-front .Detail-photo-small {
     display: block;
     width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+.is-loaded .Detail-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.is-loaded .Detail-photo-small {
+    position: absolute;
+    opacity: 0;
 }
 .Detail-front .description {
     background: white;

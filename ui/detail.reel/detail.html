@@ -18,6 +18,9 @@
             "properties": {
                 "element": {"#": "overlayWrapper"},
                 "delegate": {"@": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-loaded')": {"<-": "@owner.imageSource && !@imageLarge._isLoadingImage"}
             }
         },
         "close": {
@@ -32,13 +35,22 @@
                 }
             ]
         },
-        "photo": {
+        "imageLarge": {
             "prototype": "digit/ui/image.reel",
             "properties": {
-                "element": {"#": "photo"}
+                "element": {"#": "imageLarge"}
             },
             "bindings": {
-                "src": {"<-": "@owner.postController.imageLarge.source || @owner.postController.post.picture"}
+                "src": {"<-": "@owner.imageSource"}
+            }
+        },
+        "imageSmall": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "imageSmall"}
+            },
+            "bindings": {
+                "src": {"<-": "@owner.postController.imageSmall.source"}
             }
         },
         "avatar": {
@@ -57,7 +69,7 @@
                 "element": {"#": "message"}
             },
             "bindings": {
-                "value": {"<-": "@owner.postController.post.story || @owner.postController.post.message || @owner.postController.post.name"}
+                "value": {"<-": "@owner.postController.text"}
             }
         }
 
@@ -69,13 +81,12 @@
         <div data-montage-id="overlayWrapper" class="Detail-wrapper">
             <div data-montage-id="detailOverlay" class="Detail-overlay">
                 <div data-montage-id="front" class="Detail-front">
+                    <img data-montage-id="imageLarge" class="Detail-photo">
+                    <img data-montage-id="imageSmall" class="Detail-photo-small">
                     <button data-montage-id="close" class="close">×</button>
-                    <img data-montage-id="photo" class="Detail-photo">
                     <div class="description">
                         <div data-montage-id="avatar" class="Detail-avatar"></div>
-                        <div data-montage-id="message" class="Detail-message">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec faucibus lectus. Aliquam pulvinar tincidunt purus, at luctus nisl malesuada in. Suspendisse potenti. Morbi eget dolor tristique, aliquet nibh vel, ultricies quam. Nulla sollicitudin nisi sit amet molestie convallis. Vestibulum gravida augue risus, ut porttitor nulla faucibus quis. Donec feugiat consectetur enim. Nam eu nibh eros. Pellentesque dignissim iaculis luctus. Sed at nulla sed lectus aliquam lobortis quis nec massa. Suspendisse facilisis massa a leo tristique suscipit eget at elit. Curabitur auctor turpis sed hendrerit facilisis. Etiam et augue adipiscing, aliquam nulla a, pulvinar ipsum.
-                        </div>
+                        <div data-montage-id="message" class="Detail-message"></div>
                     </div>
                 </div>
                 <div data-montage-id="back" class="Detail-back"></div>

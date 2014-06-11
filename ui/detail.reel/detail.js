@@ -3,6 +3,7 @@
  * @requires montage/ui/component
  */
 var Component = require("montage/ui/component").Component;
+var Q = require("montage/core/promise").Promise;
 
 /**
  * @class Detail
@@ -12,6 +13,8 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
     constructor: {
         value: function Detail() {
             this.super();
+            this.addPathChangeListener("postController.imageLarge", this.handleNewImageLarge.bind(this));
+
         }
     },
 
@@ -49,6 +52,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
             this.dispatchEventNamed("closeDetail", true, true, {
                 postController: this.postController
             });
+            this.imageSource = null;
         }
     },
 
@@ -64,28 +68,56 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
 
     draw: {
         value: function () {
+            var self = this;
             var detailOverlay = this.detailOverlay;
             if (this.scaleX !== null) {
                 this.backElement.innerHTML = "";
                 this.backElement.appendChild(this._clonedElement);
-                this.backElement.style.webkitTransform = ["scale(",1/this.scaleX,", ",1/this.scaleY,") rotateY(-180deg)"].join('');
+                this.backElement.style.webkitTransform = ["scale(",1/this.scaleX,", ",1/this.scaleY,") translate3d(-",100*this.scaleX,"px,-",20*this.scaleY,"px, 0px) rotateY(-180deg)"].join('');
                 this.backElement.style.marginLeft = (90 * 1/this.scaleX) + "px";
                 detailOverlay.style.webkitTransform = ["translate3d(",this.startX,"px,",this.startY,"px, 0px) rotateY(180deg) scale(",this.scaleX,",",this.scaleY ,")"].join('');
                 this.templateObjects.overlay.show();
                 this.scaleX = null;
+                self._animationFinished = false;
+                detailOverlay.classList.add("is-booting");
             } else if(this._startAnimation) {
                 detailOverlay.style.webkitTransform = "";
+                detailOverlay.classList.remove("is-booting");
                 this._startAnimation = false;
+//                setTimeout(this.handleCloseAction.bind(this), 700);
+
             }
         }
     },
 
     didShowOverlay: {
         value: function () {
-            this._startAnimation = true;
-            this.needsDraw = true;
+            var self = this;
+            setTimeout(function () {
+                self._startAnimation = true;
+                self.needsDraw = true;
+            }, 100);
+            setTimeout(function () {
+                self._animationFinished = true;
+                if(self._imageSource) {
+                    self.imageSource = self._imageSource;
+                }
+            }, 700);
+
         }
     },
+
+    handleNewImageLarge: {
+        value: function (plus) {
+            if(plus) {
+                this._imageSource = plus.source;
+                if(this._animationFinished) {
+                    this.imageSource = this._imageSource;
+                }
+            }
+        }
+    },
+
 
     _startAnimation: {
         value: false
@@ -116,6 +148,14 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
     },
 
     postController: {
+        value: null
+    },
+
+    _imageSource: {
+        value: null
+    },
+
+    imageSource: {
         value: null
     },
 
