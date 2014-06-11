@@ -119,18 +119,18 @@
 }
 
 .Post.is-message .photo {
-    background-size: 50%;
+    background-size: 60%;
 }
 
-.Post.is-message .photo:after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 85px;
-    height: 85px;
-    background: url(balloon.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 1;
-}
+/*.Post.is-message .photo:after {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*top: 2px;*/
+    /*right: 2px;*/
+    /*width: 85px;*/
+    /*height: 85px;*/
+    /*background: url(balloon.svg);*/
+    /*background-size: contain;*/
+    /*background-repeat: no-repeat;*/
+    /*opacity: 1;*/
+/*}*/
