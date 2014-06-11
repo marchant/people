@@ -1,3 +1,34 @@
 .Login-overlay {
     color: white;
 }
+
+.Login-overlay .Login-wrapper {
+    background-color: #ffffff;
+}
+
+.Login-overlay .Login-logo {
+    float: left;
+    background-color: #3c5a96;
+    height: 45px;
+    width: 139px;
+    background-image: url(../menu.reel/facebook.png);
+    background-size: 112px 23px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.Login-overlay .Login-button {
+    height: 45px;
+    border-radius: initial;
+    border: none;
+    box-shadow: none;
+    color: #3c5a96;
+}
+
+.Login-overlay .Login-button:focus {
+    box-shadow: none;
+}
+
+.montage-ModalOverlay-modalMask {
+    background: none;
+}
