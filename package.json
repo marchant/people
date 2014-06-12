@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "montage-testing": "~0.4.0"
-  }
-
+  },
+  "bundle": ["ui/main.reel"],
+  "shard": 1
 }
 
