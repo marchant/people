@@ -29,8 +29,8 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 var startBottomRight = window.webkitConvertPointFromNodeToPage(startElement, new window.WebKitPoint(startWidth, startHeight));
                 var endBottomRight = new window.WebKitPoint(endWidth, endHeight);
 
-                this.startX = startTopLeft.x + startWidth/2 - endBottomRight.x/2;
-                this.startY = startTopLeft.y + startHeight/2 - endBottomRight.y/2;
+                this.startX = startTopLeft.x;
+                this.startY = startTopLeft.y;
                 this.scaleX = (startBottomRight.x-startTopLeft.x)/endBottomRight.x;
                 this.scaleY = (startBottomRight.y-startTopLeft.y)/endBottomRight.y;
             } else {
@@ -63,6 +63,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 // only do it once
                 this._startElement = null;
             }
+            this.detailPhotoRatio = this.detailPhoto.offsetWidth / this.detailPhoto.offsetHeight;
         }
     },
 
@@ -71,16 +72,18 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
             var self = this;
             var detailOverlay = this.detailOverlay;
             if (this.scaleX !== null) {
-                this.backElement.innerHTML = "";
-                this.backElement.appendChild(this._clonedElement);
-                this.backElement.style.webkitTransform = ["scale(",1/this.scaleX,", ",1/this.scaleY,") translate3d(-",100*this.scaleX,"px,-",20*this.scaleY,"px, 0px) rotateY(-180deg)"].join('');
-                this.backElement.style.marginLeft = (90 * 1/this.scaleX) + "px";
-                detailOverlay.style.webkitTransform = ["translate3d(",this.startX,"px,",this.startY,"px, 0px) rotateY(180deg) scale(",this.scaleX,",",this.scaleY ,")"].join('');
+                detailOverlay.style.webkitTransform = ["translate3d(",this.startX,"px,",this.startY,"px, 0px) scale(",this.scaleX,",",this.scaleY ,")"].join('');
                 this.templateObjects.overlay.show();
                 this.scaleX = null;
                 self._animationFinished = false;
                 detailOverlay.classList.add("is-booting");
             } else if(this._startAnimation) {
+                var naturalRatio = this.postController.imageSmall.width / this.postController.imageSmall.height;
+                if (naturalRatio < this.detailPhotoRatio) {
+                    detailOverlay.classList.add("is-tall");
+                } else {
+                    detailOverlay.classList.remove("is-tall");
+                }
                 detailOverlay.style.webkitTransform = "";
                 detailOverlay.classList.remove("is-booting");
                 this._startAnimation = false;

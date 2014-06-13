@@ -9,6 +9,7 @@
             "properties": {
                 "element": {"#": "owner"},
                 "detailOverlay": {"#": "detailOverlay"},
+                "detailPhoto": {"#": "detailPhoto"},
                 "frontElement": {"#": "front"},
                 "backElement": {"#": "back"}
             }
@@ -62,15 +63,6 @@
             "bindings": {
                 "src": {"<-": "@owner.postController.from.picture"}
             }
-        },
-        "message": {
-            "prototype": "montage/ui/text.reel",
-            "properties": {
-                "element": {"#": "message"}
-            },
-            "bindings": {
-                "value": {"<-": "@owner.postController.text"}
-            }
         }
 
     }
@@ -81,14 +73,13 @@
         <div data-montage-id="overlayWrapper" class="Detail-wrapper">
             <div data-montage-id="detailOverlay" class="Detail-overlay">
                 <div data-montage-id="front" class="Detail-front">
-                    <div class="Detail-photo">
-                        <div data-montage-id="imageLarge" class="Detail-imageLarge"></div>
-                        <div data-montage-id="imageSmall" class="Detail-imageSmall"></div>
+                    <div data-montage-id="detailPhoto" class="Detail-photo">
+                        <img data-montage-id="imageLarge" class="Detail-imageLarge">
+                        <img data-montage-id="imageSmall" class="Detail-imageSmall">
                     </div>
                     <button data-montage-id="close" class="close">×</button>
                     <div class="description">
                         <div data-montage-id="avatar" class="Detail-avatar"></div>
-                        <div data-montage-id="message" class="Detail-message"></div>
                     </div>
                 </div>
                 <div data-montage-id="back" class="Detail-back"></div>

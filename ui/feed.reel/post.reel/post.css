@@ -97,7 +97,7 @@
   top: 15px;
 }
 .Post.is-shown {
-  opacity: 0;
+  /*opacity: 0;*/
 }
 
 .Post.is-link .photo {

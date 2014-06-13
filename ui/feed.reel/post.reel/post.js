@@ -39,7 +39,7 @@ exports.Post = Component.specialize( {
                 if (this.postController.type === "photo") {
                     this.dispatchEventNamed("showDetail", true, true, {
                         postController: this.postController,
-                        startElement: this._postWrapper
+                        startElement: this.templateObjects.photo.element
                     });
                     setTimeout(function () {
                         self.classList.add("is-shown");
