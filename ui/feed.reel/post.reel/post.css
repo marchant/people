@@ -12,24 +12,10 @@
     top: -40px;
     left: -40px;
     width: 300px;
-    height: 100px;
-    background: url(shadow.png);
+    height: 387px;
+    background: url(shadow1.png);
     background-repeat: no-repeat;
-    -webkit-transform: translate3d(0,0,-40px);
-    opacity: .8;
-}
-.Post:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 60px;
-    left: -40px;
-    width: 300px;
-    bottom: -40px;
-    background: url(shadow.png);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    -webkit-transform: translate3d(0,0,-40px);
+    -webkit-transform: translateZ(-40px);
     opacity: .8;
 }
 .Post .photo {
@@ -43,7 +29,6 @@
     position: relative;
     background: #e7e7e7;
     height: 52px;
-    -webkit-transform-style: preserve-3d;
 }
 .Post .user .avatar {
     position: absolute;
@@ -79,7 +64,6 @@
 }
 .Post .message-wrapper {
     height: 90px;
-    background: white;
     padding: 10px 14px;
 }
 .Post .message {
