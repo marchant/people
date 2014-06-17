@@ -84,6 +84,36 @@ exports.Main = Component.specialize({
         value: function (firstTime) {
             if (firstTime) {
                 window.addEventListener("orientationchange", this, false);
+                var self = this;
+                window.setTimeout(function () {
+                    self.startTest.call(self);
+                }, 8000);
+            }
+        }
+    },
+
+    startTest: {
+        value: function () {
+            this.startTime = Date.now();
+            this.flow = this.feed.flow;
+            this.needsDraw = true;
+            this.frameCounter = 0;
+            this.flow.draggedSlideIndex = 8;
+        }
+    },
+
+    draw: {
+        value: function () {
+            if (typeof this.startTime !== "undefined") {
+                var time = Date.now() - this.startTime;
+
+                this.flow.scroll = (Math.cos(time * .0015) + 1) * 4;
+                this.frameCounter++;
+                if (time < 20000) {
+                    this.needsDraw = true;
+                } else {
+                    alert(this.frameCounter);
+                }
             }
         }
     }
