@@ -5,6 +5,10 @@
   left: 0;
   right: 0;
   height: 2000px;
+  overflow: hidden;
+}
+.Feed-flow {
+  overflow: visible;
 }
 .Feed-flow .montage-Flow-Repetition {
   opacity: 1;
