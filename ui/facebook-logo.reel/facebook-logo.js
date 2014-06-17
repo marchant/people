@@ -41,8 +41,10 @@ exports.FacebookLogo = Component.specialize(/** @lends FacebookLogo# */ {
     },
 
     draw: {
-        value: function () {
+        value: function (timestamp) {
             this.logo.style.opacity = this._opacity;
+            this.opacity = (Math.sin(timestamp * .005) + 1) * .5;
+            this.needsDraw = true;
         }
     }
 });
