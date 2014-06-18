@@ -15,11 +15,14 @@ exports.Orientation = Montage.specialize(/** @lends Orientation# */ {
             var self = this;
 
             window.addEventListener('deviceorientation', function(event) {
-                if(!self._activated) {
-                    self.reset(event.alpha, event.beta, event.gamma);
-                    self._activated = true;
+                // We get a "deviceorientation" event when the page is brought back to the front.
+                if(event.alpha !== null) {
+                    if(!self._activated) {
+                        self.reset(event.alpha, event.beta, event.gamma);
+                        self._activated = true;
+                    }
+                    self._updateOrientation(event.alpha, event.beta, event.gamma);
                 }
-                self._updateOrientation(event.alpha, event.beta, event.gamma);
             }, false);
             this.addOwnPropertyChangeListener("orientation", this);
             this.addOwnPropertyChangeListener("_baseOrientation", this);
