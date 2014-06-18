@@ -126,7 +126,7 @@ exports.UserController = FacebookController.specialize({
                 this._friends = new RangeController().initWithContent([]);
                 this._friendsPromise = this._getFriends();
                 this._friendsPromise.then(function (friends) {
-                    if (false && friends.length !== 0) {
+                    if (friends.length !== 0) {
                         var userControllers = [];
                         friends.map(function (friend) {
                             userControllers.push(new exports.UserController(friend, self._facebook));
