@@ -5,6 +5,7 @@ var Q = require("montage/core/promise").Promise;
 var FacebookController = require("./facebook-controller").FacebookController;
 var PhotoController = require("./photo-controller").PhotoController;
 var PostController = require("./post-controller").PostController;
+var AlbumController = require("./album-controller").AlbumController;
 
 exports.UserController = FacebookController.specialize({
 
@@ -125,11 +126,23 @@ exports.UserController = FacebookController.specialize({
                 this._friends = new RangeController().initWithContent([]);
                 this._friendsPromise = this._getFriends();
                 this._friendsPromise.then(function (friends) {
-                    var userControllers = [];
-                    friends.map(function (friend) {
-                        userControllers.push(new exports.UserController(friend, self._facebook));
-                    });
-                    self.friends.content.push.apply(self.friends.content, userControllers);
+                    if (false && friends.length !== 0) {
+                        var userControllers = [];
+                        friends.map(function (friend) {
+                            userControllers.push(new exports.UserController(friend, self._facebook));
+                        });
+                        self.friends.content.push.apply(self.friends.content, userControllers);
+                    } else {
+                        return self._facebook
+                            .albums(self.user)
+                            .then(function (albums) {
+                                var albumControllers = [];
+                                albums.map(function (album) {
+                                    albumControllers.push(new AlbumController(album, self._facebook));
+                                });
+                                self.friends.content.push.apply(self.friends.content, albumControllers);
+                            });
+                    }
                 })
                 .done();
             }
