@@ -7,7 +7,7 @@
 }
 
 .Menu .logo {
-    float: left;
+    position: absolute;
     background-color: #3c5a96;
     height: 39px;
     width: 136px;
@@ -20,8 +20,13 @@
 .Menu .selectedFeed,
 .Menu .selectedFeed:active,
 .Menu .selectedFeed:focus {
-    float: left;
+    position: absolute;
+    left: 136px;
+    top: 0;
     height: 39px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     background: white;
     line-height: 39px;
     font-size: 15px;
@@ -38,7 +43,6 @@
     -webkit-transition: 100ms background;
     outline: 0;
 }
-
 .Menu .selectedFeed:active {
     background: #e8e8e8;
 }
@@ -126,4 +130,32 @@
 .Menu .feedList .item:active,
 .Menu .feedList .item:focus {
     outline: 0;
+}
+
+@media (max-width: 400px) {
+    .Menu {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        left: 0;
+        right: 0;
+    }
+    .Menu .selectedFeed {
+        right: 0;
+    }
+    .Menu .feedListWrapper {
+        left: 0;
+        right: 0;
+        width: auto;
+    }
+    .Menu .feedList {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: scroll;
+    }
 }

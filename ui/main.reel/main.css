@@ -25,3 +25,8 @@
 .Main.is-loggedIn .Main-menu {
   opacity: 1;
 }
+@media (max-width: 400px) {
+    .Main-content {
+        top: 39px;
+    }
+}
