@@ -200,7 +200,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 if(self._imageSource) {
                     self.imageSource = self._imageSource;
                 }
-            }, 700);
+            }, 500);
 
         }
     },

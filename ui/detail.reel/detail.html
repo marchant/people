@@ -40,7 +40,7 @@
             ]
         },
         "imageLarge": {
-            "prototype": "digit/ui/image.reel",
+            "prototype": "../image.reel",
             "properties": {
                 "element": {"#": "imageLarge"}
             },
@@ -49,7 +49,7 @@
             }
         },
         "imageSmall": {
-            "prototype": "digit/ui/image.reel",
+            "prototype": "../image.reel",
             "properties": {
                 "element": {"#": "zoomedImage"}
             },
@@ -79,7 +79,9 @@
                     <div data-montage-id="clippedZoomedImage" class="clippedZoomedImage">
                         <div data-montage-id="clip1" class="clip1">
                             <div data-montage-id="clip2" class="clip2">
-                                <img data-montage-id="zoomedImage" class="zoomedImage">
+                                <div data-montage-id="zoomedImage" class="zoomedImage">
+                                    <div data-montage-id="imageLarge" class="zoomedImageLarge"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,9 +90,6 @@
             <button data-montage-id="close" class="close">×</button>
             <div class="description">
                 <div data-montage-id="avatar" class="Detail-avatar"></div>
-            </div>
-            <div style="display: none;" >
-                <img data-montage-id="imageLarge" class="zoomedImage">
             </div>
             <!--<div data-montage-id="detailOverlay" class="Detail-overlay">-->
                 <!--<div data-montage-id="front" class="Detail-front">-->
