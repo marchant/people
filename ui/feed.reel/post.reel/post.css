@@ -3,7 +3,7 @@
     width: 220px;
     margin-left: -110px;
     -webkit-transform-style: preserve-3d;
-    background-color: white;
+    //background-color: white;
 }
 .Post:before {
     content: "";
@@ -65,6 +65,7 @@
 .Post .message-wrapper {
     height: 90px;
     padding: 10px 14px;
+    background: white;
 }
 .Post .message {
     color: #444;
@@ -85,6 +86,7 @@
 }
 
 .Post.is-link .photo {
+    background-color: white;
     background-position: center center;
     background-size: auto;
     background-repeat: no-repeat;
@@ -103,6 +105,7 @@
 }
 
 .Post.is-message .photo {
+    background-color: white;
     background-size: 60%;
 }
 
@@ -118,3 +121,37 @@
     /*background-repeat: no-repeat;*/
     /*opacity: 1;*/
 /*}*/
+
+@media (max-height: 700px) {
+    .Post .message-wrapper {
+        height: 48px;
+        padding: 4px 5px;
+    }
+    .Post .message {
+        padding-left: 45px;
+        font-size: 13px;
+        line-height: 19px;
+        height: 38px;
+    }
+    .Post .user {
+        height: 0;
+    }
+    .Post .user .avatar {
+        top: 4px;
+        left: 5px;
+    }
+    .Post .user .name {
+        display: none;
+    }
+    .Post .user .date {
+        display: none;
+    }
+    .Post .photo {
+        width: 220px;
+        height: 148px;
+    }
+    .Post:before {
+        height: 277px;
+        background: url(shadow2.png);
+    }
+}

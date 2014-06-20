@@ -41,3 +41,15 @@
         display: none;
     }
 }
+@media (max-width: 400px) {
+    .FacebookLogo .background {
+        position: absolute;
+        width: 512px;
+        height: 512px;
+        left: -256px;
+        top: -256px;
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        -webkit-transform: translate3d(0, 0, -50px) scale3d(4, 6, 1);
+    }
+}
