@@ -8,10 +8,13 @@
         "owner": {
             "properties": {
                 "element": {"#": "owner"},
-                "detailOverlay": {"#": "detailOverlay"},
-                "detailPhoto": {"#": "detailPhoto"},
-                "frontElement": {"#": "front"},
-                "backElement": {"#": "back"}
+                "detailOverlay": {"#": "zoomedImageWrapper"},
+                "zoomedImageWrapper": {"#": "zoomedImageWrapper"},
+                "clippedZoomedImage": {"#": "clippedZoomedImage"},
+                "zoomedImage": {"#": "zoomedImage"},
+                "spacer": {"#": "spacer"},
+                "clip1": {"#": "clip1"},
+                "clip2": {"#": "clip2"}
             }
         },
         "overlay": {
@@ -48,7 +51,7 @@
         "imageSmall": {
             "prototype": "digit/ui/image.reel",
             "properties": {
-                "element": {"#": "imageSmall"}
+                "element": {"#": "zoomedImage"}
             },
             "bindings": {
                 "src": {"<-": "@owner.postController.imageSmall.source"}
@@ -71,19 +74,33 @@
 <body>
     <div data-montage-id="owner" class="Detail">
         <div data-montage-id="overlayWrapper" class="Detail-wrapper">
-            <div data-montage-id="detailOverlay" class="Detail-overlay">
-                <div data-montage-id="front" class="Detail-front">
-                    <div data-montage-id="detailPhoto" class="Detail-photo">
-                        <img data-montage-id="imageLarge" class="Detail-imageLarge">
-                        <img data-montage-id="imageSmall" class="Detail-imageSmall">
-                    </div>
-                    <button data-montage-id="close" class="close">×</button>
-                    <div class="description">
-                        <div data-montage-id="avatar" class="Detail-avatar"></div>
+            <div data-montage-id="zoomedImageWrapper" class="zoomedImageWrapper">
+                <div data-montage-id="spacer" class="spacer">
+                    <div data-montage-id="clippedZoomedImage" class="clippedZoomedImage">
+                        <div data-montage-id="clip1" class="clip1">
+                            <div data-montage-id="clip2" class="clip2">
+                                <img data-montage-id="zoomedImage" class="zoomedImage">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div data-montage-id="back" class="Detail-back"></div>
             </div>
+            <button data-montage-id="close" class="close">×</button>
+            <div class="description">
+                <div data-montage-id="avatar" class="Detail-avatar"></div>
+            </div>
+            <div style="display: none;" >
+                <img data-montage-id="imageLarge" class="zoomedImage">
+            </div>
+            <!--<div data-montage-id="detailOverlay" class="Detail-overlay">-->
+                <!--<div data-montage-id="front" class="Detail-front">-->
+                    <!--<div data-montage-id="detailPhoto" class="Detail-photo">-->
+                        <!--<img data-montage-id="imageLarge" class="Detail-imageLarge">-->
+                        <!--<img data-montage-id="imageSmall" class="Detail-imageSmall">-->
+                    <!--</div>-->
+               <!--</div>-->
+                <!--<div data-montage-id="back" class="Detail-back"></div>-->
+            <!--</div>-->
         </div>
     </div>
 </body>
