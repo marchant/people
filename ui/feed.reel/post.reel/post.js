@@ -35,7 +35,7 @@ exports.Post = Component.specialize( {
     selectionChange: {
         value: function (value) {
             var self = this;
-            if(value) {
+            if(value && this.postController) {
                 if (this.postController.type === "photo") {
                     this.dispatchEventNamed("showDetail", true, true, {
                         postController: this.postController,

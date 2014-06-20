@@ -83,7 +83,6 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
             zoom;
 
             if(this._showOverlay) {
-                console.log("_showOverlay");
                 this._showOverlay = false;
 
                 this.templateObjects.overlay.show();
@@ -95,7 +94,6 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 this._animationStepTwo = false;
                 this._animationStepThree = false;
             } else if (this._startAnimation) {
-                console.log("_startAnimation");
                 this._startAnimation = false;
 
                 point = this.point;
@@ -166,7 +164,6 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 this._animationStepTwo = true;
                 this.needsDraw = true;
             } else if (this._animationStepTwo) {
-                console.log("_animationStepTwo");
                 this._animationStepTwo = false;
 
                 zoomedImageWrapper.classList.add("scroll");
@@ -178,7 +175,6 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 this._animationStepThree = true;
                 this.needsDraw = true;
             } else if (this._animationStepThree) {
-                console.log("_animationStepThree");
                 this._animationStepThree = false;
 
                 clippedZoomedImage.style.webkitTransform = "translate3d(0,0,0) scale3d(1,1,1)";
@@ -200,7 +196,7 @@ exports.Detail = Component.specialize(/** @lends Detail# */ {
                 if(self._imageSource) {
                     self.imageSource = self._imageSource;
                 }
-            }, 500);
+            }, 550);
 
         }
     },
