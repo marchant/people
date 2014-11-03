@@ -16,80 +16,207 @@
                 }
             ]
         },
-        "orientation": {
-            "prototype": "./orientation",
+        "detail": {
+            "prototype": "../detail.reel",
             "properties": {
-                "magnitude": 200,
-                "input": [
-                    100,
-                    -400,
-                    810
-                ]
+                "element": {"#": "detail"}
             },
-            "bindings": {
-                "input": {"<-": "@tween.current"}
-            }
+            "listeners": [
+                {
+                    "type": "closeDetail",
+                    "listener": {"@": "owner"}
+                }
+            ]
         },
         "feedFlow": {
             "prototype": "montage/ui/flow.reel",
             "properties": {
                 "element": {"#": "feedFlow"},
-                "hasElasticScrolling": true,
-                "elasticScrollingSpeed": 1,
-                "linearScrollingVector": [-62.5, 0],
+                "boundingBoxSize": [
+                    100000,
+                    100000,
+                    100000
+                ],
                 "cameraFov": 90,
-                "cameraPosition": [0, 0, 1000],
-                "cameraTargetPoint": [0, 0, 0],
-                "boundingBoxSize": [100000, 100000, 100000],
-                "stride": 0.5,
+                "cameraPosition": [
+                    0,
+                    0,
+                    1000
+                ],
+                "cameraTargetPoint": [
+                    0,
+                    0,
+                    0
+                ],
+                "delegate": {"@": "owner"},
+                "elasticScrollingSpeed": 1,
+                "flowEditorMetadata": {
+                    "flowEditorVersion": 0.1,
+                    "shapes": [
+                        {
+                            "type": "FlowSpline",
+                            "name": "Spline 1",
+                            "pathIndex": 0,
+                            "id": 11
+                        },
+                        {
+                            "type": "FlowSpline",
+                            "name": "Spline 2",
+                            "pathIndex": 1
+                        }
+                    ]
+                },
+                "hasElasticScrolling": true,
+                "hasSelectedIndexScrolling": false,
+                "isSelectionEnabled": true,
+                "linearScrollingVector": [
+                    -62.5,
+                    0
+                ],
                 "paths": [
                     {
                         "knots": [
                             {
-                                "knotPosition": [-3750, 0, 0],
-                                "nextHandlerPosition": [-1250, 0, 0],
+                                "previousHandlerPosition": [],
+                                "nextDensity": 30,
                                 "previousDensity": 30,
-                                "nextDensity": 30
+                                "knotPosition": [
+                                    -3762.223,
+                                    -48.892,
+                                    0
+                                ],
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1,
+                                "nextHandlerPosition": [
+                                    -1262.223,
+                                    -48.892,
+                                    0
+                                ]
                             },
                             {
-                                "knotPosition": [3750, 0, 0],
-                                "previousHandlerPosition": [1250, 0, 0],
+                                "knotPosition": [
+                                    3737.777,
+                                    -48.892,
+                                    0
+                                ],
+                                "nextHandlerPosition": [
+                                    null,
+                                    null,
+                                    null
+                                ],
+                                "previousHandlerPosition": [
+                                    1237.777,
+                                    -48.892,
+                                    0
+                                ],
+                                "nextDensity": 30,
                                 "previousDensity": 30,
-                                "nextDensity": 30
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1
                             }
                         ],
+                        "units": {
+                            "rotateX": "",
+                            "rotateY": "",
+                            "rotateZ": "",
+                            "opacity": ""
+                        },
                         "headOffset": 15,
-                        "tailOffset": 15,
-                        "units": {}
+                        "tailOffset": 15
                     },
                     {
                         "knots": [
                             {
-                                "knotPosition": [-3750, 0, 0],
-                                "nextHandlerPosition": [-1250, 0, 0],
+                                "previousHandlerPosition": [],
+                                "nextDensity": 30,
                                 "previousDensity": 30,
-                                "nextDensity": 30
+                                "knotPosition": [
+                                    -3762.22294654498,
+                                    42.786741091776776,
+                                    0
+                                ],
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1,
+                                "nextHandlerPosition": [
+                                    -1262.22294654498,
+                                    42.786741091776776,
+                                    0
+                                ]
                             },
                             {
-                                "knotPosition": [3750, 0, 0],
-                                "previousHandlerPosition": [1250, 0, 0],
+                                "knotPosition": [
+                                    3737.77705345502,
+                                    42.786741091776776,
+                                    0
+                                ],
+                                "nextHandlerPosition": [
+                                    0,
+                                    -18.327991633125976,
+                                    0
+                                ],
+                                "previousHandlerPosition": [
+                                    1237.77705345502,
+                                    42.786741091776776,
+                                    0
+                                ],
+                                "nextDensity": 30,
                                 "previousDensity": 30,
-                                "nextDensity": 30
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1
                             }
                         ],
+                        "units": {
+                            "rotateX": "",
+                            "rotateY": "",
+                            "rotateZ": "",
+                            "opacity": ""
+                        },
                         "headOffset": 15.5,
-                        "tailOffset": 15,
-                        "units": {}
+                        "tailOffset": 15
                     }
                 ],
-                "isSelectionEnabled": true,
-                "delegate": {"@": "owner"},
-                "scrollingTransitionDuration": "600",
-                "slotContent": {"@": "logo"}
+                "scrollingTransitionDuration": 600,
+                "scrollingTransitionTimingFunction": "ease",
+                "scrollVectorX": true,
+                "scrollVectorY": true,
+                "selectedIndexScrollingOffset": 0,
+                "slotContent": {"@": "logo"},
+                "stride": 0.5
             },
             "bindings": {
                 "classList.has('is-hidden')": {"<-": "@owner._flowHidden"},
                 "contentController": {"<-": "@owner._displayedContentController"}
+            }
+        },
+        "logo": {
+            "prototype": "../facebook-logo.reel",
+            "properties": {
+                "element": {"#": "logo"}
+            },
+            "bindings": {
+                "opacity": {"<-": "1 - @feedFlow.scroll * 2"}
+            }
+        },
+        "orientation": {
+            "prototype": "./orientation",
+            "properties": {
+                "input": [
+                    100,
+                    -400,
+                    810
+                ],
+                "magnitude": 200
+            },
+            "bindings": {
+                "input": {"<-": "@tween.current"}
             }
         },
         "post": {
@@ -116,27 +243,6 @@
                     1000
                 ]
             }
-        },
-        "logo": {
-            "prototype": "../facebook-logo.reel",
-            "properties": {
-                "element": {"#": "logo"}
-            },
-            "bindings": {
-                "opacity": {"<-": "1 - @feedFlow.scroll * 2"}
-            }
-        },
-        "detail": {
-            "prototype": "../detail.reel",
-            "properties": {
-                "element": {"#": "detail"}
-            },
-            "listeners": [
-                {
-                    "type": "closeDetail",
-                    "listener": {"@": "owner"}
-                }
-            ]
         }
     }
     </script>
@@ -144,6 +250,7 @@
 <body>
     <div data-montage-id="owner" class="Feed is-zoomedIn">
         <div data-montage-id="logo" class="Feed-logo">
+
         </div>
         <div data-montage-id="feedFlow" class="Feed-flow">
             <div data-montage-id="post" class="Feed-post"></div>
