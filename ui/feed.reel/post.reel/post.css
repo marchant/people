@@ -15,8 +15,8 @@
     height: 387px;
     background: url(shadow1.png);
     background-repeat: no-repeat;
-    -webkit-transform: translateZ(-40px);
-    opacity: .8;
+/*    -webkit-transform: translateZ(-40px);*/ 
+   opacity: .8;
 }
 .Post .photo {
     width: 220px;
